@@ -33,7 +33,7 @@ def get_py_details(hans):
         spell = lazy_pinyin(i, style=Style.NORMAL)[0]
         tone = lazy_pinyin(i, style=Style.TONE3,neutral_tone_with_five=True)[0][-1]
         initial = lazy_pinyin(i, style=Style.INITIALS, strict=False)[0]
-        final = lazy_pinyin(i, style=Style.FINALS)[0]
+        final = lazy_pinyin(i, style=Style.FINALS,strict=False)[0]
         pyInfo = {
             form:
             {
@@ -102,7 +102,7 @@ def Levenshtein_Distance(str1, str2):
             matrix[i][j] = min(matrix[i-1][j]+1, matrix[i][j-1]+1, matrix[i-1][j-1]+d)
 
     dist = matrix[len(str1)][len(str2)]
-    sim = (1/(1+dist))
+    sim = 1/(1+dist)
     sim = round(sim,3)
     return sim
 
@@ -121,26 +121,27 @@ def pinyin_dict_affiche(request):
         print(data)
         data_pinyin = {}
         for value in data.values():
-            correctPinYinInfo = get_py_details(value)
-            pyinfo = correctPinYinInfo[value] # 当前字的pinyin信息
-            shengmu_correct = pyinfo.get("initial")
-            yunmu_correct = pyinfo.get("final")
-            tone_correct = pyinfo.get('tone')
-            pyAvecTone = pyinfo.get('pyAvecTone')
-            pySansTone = pyinfo.get('pySansTone')
-                    # 处理空字符串
-            if tone_correct == '':
-                tone_correct = None
-            elif shengmu_correct == '':
-                shengmu_correct = None
-            mot_pinyin = {
-                "pyAvecTone":pyAvecTone,
-                'pySansTone':pySansTone,
-                "initial_corr":shengmu_correct,
-                "final_corr":yunmu_correct,
-                "tone_corr":tone_correct
-            }
-            data_pinyin[value] = mot_pinyin
+            for hanzi in value:
+                correctPinYinInfo = get_py_details(hanzi)
+                pyinfo = correctPinYinInfo[hanzi] # 当前字的pinyin信息
+                shengmu_correct = pyinfo.get("initial")
+                yunmu_correct = pyinfo.get("final")
+                tone_correct = pyinfo.get('tone')
+                pyAvecTone = pyinfo.get('pyAvecTone')
+                pySansTone = pyinfo.get('pySansTone')
+                        # 处理空字符串
+                if tone_correct == '':
+                    tone_correct = None
+                elif shengmu_correct == '':
+                    shengmu_correct = None
+                mot_pinyin = {
+                    "pyAvecTone":pyAvecTone,
+                    'pySansTone':pySansTone,
+                    "initial_corr":shengmu_correct,
+                    "final_corr":yunmu_correct,
+                    "tone_corr":tone_correct
+                }
+                data_pinyin[hanzi] = mot_pinyin
         print(json.dumps(data_pinyin,ensure_ascii=False,indent=4))
         return render(request, "t_myapp/HSKpinyin/pinyinAffi.html", {"data":data_pinyin})
 

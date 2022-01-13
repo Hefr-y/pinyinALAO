@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/hsk.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.min.css' %}">
     <title>hsk2判断</title>
 </head>
 <body>
@@ -38,8 +39,8 @@
         <!-- 评价 -->
         <div class="div-hsk">
             <div align="center">
-                <font style="font-size: large;font-weight: bolder;"> -- 评估对比 -- </font><br/>
-                <font style="font-size: medium;font-weight: bold;">正确结果为绿色，您的输入为黄色</font><br/><br/>
+                <font style="font-size: large;font-weight: bolder;"> -- Évaluation -- </font><br/>
+                <font style="font-size: medium;font-weight: bold;">Le résultat correct est vert, votre entrée est jaune.</font><br/><br/>
             </div>
             声母部分：<br/>
             <div align="center">
@@ -48,9 +49,19 @@
                 &nbsp;&nbsp;
                 <!-- 判断显示对勾或者叉号 -->
                 {% if pyinfo.initial_corr == pyinfo.initial_user %}
-                    <font style="font-size: 24px;font-weight: bold;color: darkgreen;">&#10004;</font>
+                    <font style="color: green;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                        </svg>
+                    </font>
                 {% else %}
-                    <font style="font-size: 24px;font-weight: bold;color: red;">&#10007;</font>
+                    <font style="color: red;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </font>
                 {% endif %}
                 <br/><br/>
             </div>
@@ -62,9 +73,19 @@
                 &nbsp;&nbsp;
                 <!-- 判断显示对勾或者叉号 -->
                 {% if pyinfo.final_corr == pyinfo.final_user %}
-                    <font style="font-size: 24px;font-weight: bold;color: darkgreen;">&#10004;</font>
+                    <font style="color: green;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                        </svg>
+                    </font>
                 {% else %}
-                    <font style="font-size: 24px;font-weight: bold;color: red;">&#10007;</font>
+                    <font style="color: red;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </font>
                 {% endif %}
                 <br/><br/>
             </div>
@@ -76,23 +97,35 @@
                 &nbsp;&nbsp;
                 <!-- 判断显示对勾或者叉号 -->
                 {% if pyinfo.tone_corr == pyinfo.tone_user %}
-                    <font style="font-size: 24px;font-weight: bold;color: darkgreen;">&#10004;</font>
+                    <font style="color: green;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                        </svg>
+                    </font>
                 {% else %}
-                    <font style="font-size: 24px;font-weight: bold;color: red;">&#10007;</font>
+                    <font style="color: red;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                    </font>
                 {% endif %}
                 <br/><br/>
             </div>
 
-            您的回答与正确结果的相似性：<br/>
+            Similarité de votre réponse avec le résultat correct:<br/>
             <div align="center">
-                <font style="font-size: 24px;font-weight: bold;color: orange;">{{pyinfo.similarite}}</font> <br/><br/>
+                <font style="font-size: 24px;font-weight: bold;color: hotpink;">{{pyinfo.similarite}}</font> <br/><br/>
             </div>
         </div>
     </div>
 
         {% comment %} <p>{{hanzi}} :{{ pyinfo }} </p> {% endcomment %}
     {% endfor %}
-
+    <div id="back">
+        <button class="btn btn-outline-danger btn-lg" type="button" onclick="self.location=document.referrer;" />BACK</button>
+    </div>
 
 </body>
 </html>

@@ -2,10 +2,51 @@
     display: flex;
   }
 
+.display-inline{
+    display: inline-flex;
+}
+
 .div-hsk {
     border: 1px solid red;
     width: 400px;
     height: 400px;
     margin: 10px;
   }
+
+.div-dic {
+  border: 1px solid rebeccapurple;
+  width: 300px;
+  height: 210px;
+  margin: 10px;
+}
+.d-flex {
+  position: absolute;
+  left: 35%;
+	bottom: 50%;
+}
+#back {
+  position: absolute;
+  right: 50%;
+	bottom: 0;
+}
+
+#welcome {
+  text-align: center; /*让div内部文字居中*/
+	border-radius: 20px;
+	width: 300px;
+	height: 350px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+
+#back-dic {
+  position: absolute;
+  right: 50%;
+	bottom: 50%;
+}
 

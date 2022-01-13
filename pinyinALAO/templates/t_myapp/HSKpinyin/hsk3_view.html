@@ -4,11 +4,49 @@
 
 {% block content %}
 <title>hsk3</title>
-<h1>这里是hsk3</h1>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+</svg>
+
+
+
+<div class="alert alert-info" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+    <h4 class="alert-heading">Vocabulaire de l’examen HSK (niveau 3)</h4>
+    <p class="mb-0">
+        Vous pouvez soumettre le pinyin d'un mot à la fois,</br>
+        et nous afficherons le pinyin correct pour ce mot
+        et évaluerons brièvement votre réponse par rapport à la réponse correcte.
+    </p>
+    <hr>
+    <p>
+        Le HSK niveau 3 comprend un total de {{hsk3_lex|length}} mots.</br>
+        Si un caractère ne prononce pas un ton, son ton est 5.</br>
+        Si vous ne connaissez pas le ton pinyin d'un caractère, vous n'êtes pas obligé de l'écrire.</br>
+        Si vous le savez, vous pouvez écrire le numéro du ton à la fin de votre pinyin.</br>
+        Par exemple, le pinyin de le caractère chinois
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">我</font> est
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">wǒ</font>.
+        On peut l'écrire comme
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">wo3</font></br>
+        Autres exemples：
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">中</font> est
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">zhōng</font> =
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">zhong1</font>
+        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">爱</font> est
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">ài</font> =
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">ai4</font></br>
+
+
+    </p>
+</div>
+
+
 
 {% for hsk3_mot in hsk3_lex %}
-
-
 {% comment %} hsk词汇长度为1时,显示一个输入框 {% endcomment %}
 {% if hsk3_mot|length == 1 %}
     <form class="row g-3" action="hsk3" method="post">

@@ -6,14 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/hsk.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap.min.css' %}">
+
     <title>pinyinAffichage</title>
 </head>
 <body>
     {% for hanzi, pyinfo in data.items %}
 
-    <div class="display-flex">
+    <div class="display-inline">
         <!-- 正确的拼音信息 -->
-        <div class="div-hsk">
+        <div class="div-dic">
             汉字：<font style="font-size:30px;font-weight:bolder;">{{hanzi}}</font><br/>
             正确信息如下：<br/>
             带音调的拼音为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.pyAvecTone}}</font>
@@ -27,7 +29,10 @@
 
         {% comment %} <p>{{hanzi}} :{{ pyinfo }} </p> {% endcomment %}
     {% endfor %}
+    </div>
 
-
+    <div id="back-dic">
+        <button class="btn btn-warning btn-lg" type="button" onclick="self.location=document.referrer;" />BACK</button>
+    </div>
 </body>
 </html>
