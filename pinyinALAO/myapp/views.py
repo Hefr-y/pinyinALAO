@@ -29,6 +29,7 @@ def get_py_details(hans):
     for i in hans:
         form = i
         pyAvecTone = lazy_pinyin(i,style=Style.TONE)[0]
+        pySansTone = lazy_pinyin(i, style=Style.TONE3,neutral_tone_with_five=True)[0]
         spell = lazy_pinyin(i, style=Style.NORMAL)[0]
         tone = lazy_pinyin(i, style=Style.TONE3,neutral_tone_with_five=True)[0][-1]
         initial = lazy_pinyin(i, style=Style.INITIALS, strict=False)[0]
@@ -36,6 +37,7 @@ def get_py_details(hans):
         pyInfo = {
             form:
             {
+            "pySansTone":pySansTone,
             "pyAvecTone":pyAvecTone,
             "spell":spell,
             "tone":tone,
@@ -81,7 +83,28 @@ def get_yunmu(pinyin,shengmu):
         return yunmu
 
 
+def Levenshtein_Distance(str1, str2):
+    """
+    计算字符串 str1 和 str2 的编辑距离
+    :param str1
+    :param str2
+    :return:
+    """
+    matrix = [[ i + j for j in range(len(str2) + 1)] for i in range(len(str1) + 1)]
 
+    for i in range(1, len(str1)+1):
+        for j in range(1, len(str2)+1):
+            if(str1[i-1] == str2[j-1]):
+                d = 0
+            else:
+                d = 1
+
+            matrix[i][j] = min(matrix[i-1][j]+1, matrix[i][j-1]+1, matrix[i-1][j-1]+d)
+
+    dist = matrix[len(str1)][len(str2)]
+    sim = (1/(1+dist))
+    sim = round(sim,3)
+    return sim
 
 # Create your views here.
 def index(request):
@@ -100,25 +123,10 @@ def hsk1_view(request):
 
 
 
-def analyze(request):
-    colis = json.loads(request.body)
-    text = colis['inText']
-    print("À analyser :",text)
-
-    nlp = spacy.load("zh_core_web_sm")
-
-    output = nlp(text)
-    rep = []
-    for token in output:
-        rep.append((token.text, token.pos_))
-
-    return JsonResponse({ "reponse":rep })
-
-
 def hsk1(request):
     query_dict = request.POST
     data = query_dict.dict()
-    print(data)
+    # print(data)
     data_pinyin = {}
     for key, value in data.items():
         shengmu = get_shengmu(value)
@@ -130,144 +138,37 @@ def hsk1(request):
         yunmu_correct = pyinfo.get("final")
         tone_correct = pyinfo.get('tone')
         pyAvecTone = pyinfo.get('pyAvecTone')
+        pySansTone = pyinfo.get('pySansTone')
                 # 处理空字符串
         if tone_correct == '':
             tone_correct = None
         elif shengmu_correct == '':
             shengmu_correct = None
+
+        sim = Levenshtein_Distance(pySansTone, value)
+        sim = "%.2f%%" % (sim * 100)
         mot_pinyin = {
             "pinyin_user":value,
             "initial_user":shengmu,
             "final_user":yunmu,
             "tone_user":tone,
             "pyAvecTone":pyAvecTone,
+            'pySansTone':pySansTone,
             "initial_corr":shengmu_correct,
             "final_corr":yunmu_correct,
-            "tone_corr":tone_correct
+            "tone_corr":tone_correct,
+            "similarite":sim
         }
         data_pinyin[key] = mot_pinyin # 每个单独字的拼音信息（用户输入和正确拼音）
 
-        print("每个字的正确拼音信息: ",correctPinYinInfo)
-        print("每个字的正确声母", shengmu_correct, "每个字的正确韵母", yunmu_correct, "每个字的正确音调", tone_correct)
-        print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
-        print(data_pinyin)
+        # print("每个字的正确拼音信息: ",correctPinYinInfo)
+        # print("每个字的正确声母", shengmu_correct, "每个字的正确韵母", yunmu_correct, "每个字的正确音调", tone_correct)
+        # print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
+    print(json.dumps(data_pinyin,ensure_ascii=False,indent=4))
     return render(request, "t_myapp/HSKpinyin/hsk1.html", {"data":data_pinyin})
-    # return JsonResponse(data_pinyin)
-
-
-
-
-# def hsk1_view(request):
-#     if request.method == 'GET':
-#         data_hsk1_question = {"hsk1_lex":hsk1_lex}
-#         return render(request, "t_myapp/HSKpinyin/hsk1.html",data_hsk1_question)
-#     elif request.method == 'POST':
-#         query_dict = request.POST
-#         data = query_dict.dict()
-#         print(data)
-#         data_pinyin = {}
-#         for key, value in data.items():
-#             shengmu = get_shengmu(value)
-#             tone = get_tone(value)
-#             yunmu = get_yunmu(value, shengmu)
-#             correctPinYinInfo = get_py_details(key)
-#             pyinfo = correctPinYinInfo[key] # 当前字的pinyin信息
-#             shengmu_correct = pyinfo.get("initial")
-#             yunmu_correct = pyinfo.get("final")
-#             tone_correct = pyinfo.get('tone')
-
-#             mot_pinyin = {
-#                 "initial_user":shengmu,
-#                 "final_user":yunmu,
-#                 "tone_user":tone,
-#                 "initial_corr":shengmu_correct,
-#                 "final_corr":yunmu_correct,
-#                 "tone_corr":tone_correct
-#             }
-#             data_pinyin[key] = mot_pinyin # 每个单独字的拼音信息（用户输入和正确拼音）
-
-#             print("每个字的正确拼音信息: ",correctPinYinInfo)
-#             print("每个字的正确声母", shengmu_correct, "每个字的正确韵母", yunmu_correct, "每个字的正确音调", tone_correct)
-#             print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
-#         return render(request, "t_myapp/HSKpinyin/hsk1.html", data_pinyin)
-#         # return JsonResponse(data_pinyin)
-
-
-
-
-
-
 
 def hsk2(request):
     return render(request, "t_myapp/HSKpinyin/hsk2.html")
 
 def hsk3(request):
     return render(request, "t_myapp/HSKpinyin/hsk3.html")
-
-
-
-def analyze_spacy(request):
-    return render(request, "t_myapp/analyse_spacy.html")
-
-
-
-
-def test_get_post(request):
-    if request.method == 'GET':
-        print(request.GET)
-        print(request.GET.getlist('a'))
-        print(request.GET.get('c','no c'))
-        # return HttpResponse(POST_FORM)
-
-    elif request.method == 'POST':
-        print('uname is', request.POST['uname'])
-        return HttpResponse('post is ok')
-
-    else:
-        pass
-
-
-    return HttpResponse('--test get post is ok--')
-
-
-
-def test_request(request):
-    print('path info is', request.path_info)
-    print('method is', request.method)
-    print('querystring is', request.GET)
-    print('full path is', request.get_full_path())
-
-    return HttpResponse('test request ok')
-
-
-def variables(request):
-    nom = "Édouard"
-    hobbies = ["ping pong", "lecture", "musique"]
-
-    return render(request, 't_myapp/variables.html', {"nom":nom, "hobbies":hobbies})
-
-# def boucle(request):
-#     membres = [
-#         {"nom":"Dupond", "prenom":"Sophie"},
-#         {"nom":"Hache", "prenom":"Anne"},
-#         {"nom":"Von Ergstadt", "prenom":"Émile"},
-#         {"nom":"Dupuit", "prenom":"Alex"},
-#     ]
-#     return render(request, 't_myapp/boucle.html',{"membres":membres})
-
-def boucle(request):
-    bigmac = {
-            "Énergie": "504kcal",
-            "Matières grasses": "25g",
-            "Dont acides gras saturés": "9,2g",
-            "Sucres": "8,2g",
-            "Sel": "2,2g"
-    }
-    membres = [
-        {"nom":"Dupond", "prenom":"Sophie"},
-        {"nom":"Hache", "prenom":"Anne"},
-        {"nom":"Von Ergstadt", "prenom":"Émile"},
-        {"nom":"Dupuit", "prenom":"Alex"},
-    ]
-
-    return render(request, 't_myapp/boucle.html',{"bigmac":bigmac,"membres":membres})

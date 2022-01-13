@@ -20,9 +20,9 @@ urlpatterns = [
 
 
     # 测试 test
-    path('apprentissage/', views.boucle, name='test2'), # page de boucle
-    path('analyze_spacy/',views.analyze_spacy, name='analyze_spacy'),
-    path('analyze/', views.analyze),
-    path('test_request', views.test_request),
-    path('test_get_post', views.test_get_post),
+    # path('apprentissage/', views.boucle, name='test2'), # page de boucle
+    # path('analyze_spacy/',views.analyze_spacy, name='analyze_spacy'),
+    # path('analyze/', views.analyze),
+    # path('test_request', views.test_request),
+    # path('test_get_post', views.test_get_post),
 ]

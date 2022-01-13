@@ -16,7 +16,10 @@
         <div class="div-hsk">
             汉字：<font style="font-size:30px;font-weight:bolder;">{{hanzi}}</font><br/>
             正确信息如下：<br/>
-            带音调的拼音为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.pyAvecTone}}</font><br/>
+            带音调的拼音为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.pyAvecTone}}</font>
+                        /
+                        <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.pySansTone}}</font>
+                        <br/>
             其声母为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.initial_corr}}</font><br/>
             其韵母为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.final_corr}}</font><br/>
             其声调为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.tone_corr}}</font><br/>
@@ -41,23 +44,53 @@
             声母部分：<br/>
             <div align="center">
                 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.initial_corr}}</font> |
-                <font style="font-size: 24px;font-weight: bold;color: orange;">{{pyinfo.initial_user}}</font> <br/><br/>
+                <font style="font-size: 24px;font-weight: bold;color: orange;">{{pyinfo.initial_user}}</font>
+                &nbsp;&nbsp;
+                <!-- 判断显示对勾或者叉号 -->
+                {% if pyinfo.initial_corr == pyinfo.initial_user %}
+                    <font style="font-size: 24px;font-weight: bold;color: darkgreen;">&#10004;</font>
+                {% else %}
+                    <font style="font-size: 24px;font-weight: bold;color: red;">&#10007;</font>
+                {% endif %}
+                <br/><br/>
             </div>
 
             韵母部分：<br/>
             <div align="center">
                 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.final_corr}}</font> |
-                <font style="font-size: 24px;font-weight: bold;color: orange;">{{pyinfo.final_user}}</font> <br/><br/>
+                <font style="font-size: 24px;font-weight: bold;color: orange;">{{pyinfo.final_user}}</font>
+                &nbsp;&nbsp;
+                <!-- 判断显示对勾或者叉号 -->
+                {% if pyinfo.final_corr == pyinfo.final_user %}
+                    <font style="font-size: 24px;font-weight: bold;color: darkgreen;">&#10004;</font>
+                {% else %}
+                    <font style="font-size: 24px;font-weight: bold;color: red;">&#10007;</font>
+                {% endif %}
+                <br/><br/>
             </div>
+
             音调部分：<br/>
             <div align="center">
                 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.tone_corr}}</font> |
-                <font style="font-size: 24px;font-weight: bold;color: orange;">{{pyinfo.tone_user}}</font> <br/><br/>
+                <font style="font-size: 24px;font-weight: bold;color: orange;">{{pyinfo.tone_user}}</font>
+                &nbsp;&nbsp;
+                <!-- 判断显示对勾或者叉号 -->
+                {% if pyinfo.tone_corr == pyinfo.tone_user %}
+                    <font style="font-size: 24px;font-weight: bold;color: darkgreen;">&#10004;</font>
+                {% else %}
+                    <font style="font-size: 24px;font-weight: bold;color: red;">&#10007;</font>
+                {% endif %}
+                <br/><br/>
+            </div>
+
+            您的回答与正确结果的相似性：<br/>
+            <div align="center">
+                <font style="font-size: 24px;font-weight: bold;color: orange;">{{pyinfo.similarite}}</font> <br/><br/>
             </div>
         </div>
     </div>
 
-        <p>{{hanzi}} :{{ pyinfo }} </p>
+        {% comment %} <p>{{hanzi}} :{{ pyinfo }} </p> {% endcomment %}
     {% endfor %}
 
 
