@@ -21,7 +21,7 @@
 	  {% comment %} <script src="https://cdn.jsdelivr.net/npm/cnchar-all/cnchar.all.min.js"></script> {% endcomment %}
 
     <script src="{% static 'scripts/cnchar.min.js' %}"></script>
-    
+
 </head>
 
 <body>
@@ -48,13 +48,13 @@
           <a class="nav-link" href="{% url 'hsk1_view' %}">HSK1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'hsk2' %}">HSK2</a>
+          <a class="nav-link" href="{% url 'hsk2_view' %}">HSK2</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'hsk3' %}">HSK3</a>
         </li>
 
-        {% comment %} 
+        {% comment %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
           <div class="dropdown-menu">
@@ -64,16 +64,16 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Separated link</a>
           </div>
-        </li> 
+        </li>
         {% endcomment %}
 
       </ul>
 
-      {% comment %} 
+      {% comment %}
       <form class="d-flex">
         <input class="form-control me-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form> 
+      </form>
       {% endcomment %}
 
     </div>
@@ -81,7 +81,7 @@
 </nav>
 
 
-  
+
 
     <div class="container">
 

@@ -72,6 +72,37 @@
         </div>
     </form>
 <hr>
+{% comment %} hsk词汇长度为4时,显示四个输入框 {% endcomment %}
+{% elif hsk1_mot|length == 4 %}
+    <form class="row g-3" action="hsk1" method="post">
+        <label for="exampleFormControlInput1" class="form-label">{{hsk1_mot}}</label>
+        <div class="input-group" id="exampleFormControlInput1">
+            <span class="input-group-text">{{hsk1_mot.0}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk1_mot.0}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+
+            <span class="input-group-text">{{hsk1_mot.1}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk1_mot.1}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+
+            <span class="input-group-text">{{hsk1_mot.2}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk1_mot.2}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+
+            <span class="input-group-text">{{hsk1_mot.3}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk1_mot.3}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+<hr>
 {% endif %}
 {% endfor %}
 

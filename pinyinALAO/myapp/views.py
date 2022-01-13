@@ -115,13 +115,11 @@ def pinyin_dict(request):
 
 
 
-# test
+# hsk1的代码
 def hsk1_view(request):
     if request.method == 'GET':
         data_hsk1_question = {"hsk1_lex":hsk1_lex}
         return render(request, "t_myapp/HSKpinyin/hsk1_view.html",data_hsk1_question)
-
-
 
 def hsk1(request):
     query_dict = request.POST
@@ -160,15 +158,60 @@ def hsk1(request):
             "similarite":sim
         }
         data_pinyin[key] = mot_pinyin # 每个单独字的拼音信息（用户输入和正确拼音）
-
         # print("每个字的正确拼音信息: ",correctPinYinInfo)
         # print("每个字的正确声母", shengmu_correct, "每个字的正确韵母", yunmu_correct, "每个字的正确音调", tone_correct)
         # print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
     print(json.dumps(data_pinyin,ensure_ascii=False,indent=4))
     return render(request, "t_myapp/HSKpinyin/hsk1.html", {"data":data_pinyin})
 
+# hsk2的代码
+def hsk2_view(request):
+    if request.method == 'GET':
+        data_hsk2_question = {"hsk2_lex":hsk2_lex}
+        return render(request, "t_myapp/HSKpinyin/hsk2_view.html",data_hsk2_question)
+
 def hsk2(request):
-    return render(request, "t_myapp/HSKpinyin/hsk2.html")
+    query_dict = request.POST
+    data = query_dict.dict()
+    # print(data)
+    data_pinyin = {}
+    for key, value in data.items():
+        shengmu = get_shengmu(value)
+        tone = get_tone(value)
+        yunmu = get_yunmu(value, shengmu)
+        correctPinYinInfo = get_py_details(key)
+        pyinfo = correctPinYinInfo[key] # 当前字的pinyin信息
+        shengmu_correct = pyinfo.get("initial")
+        yunmu_correct = pyinfo.get("final")
+        tone_correct = pyinfo.get('tone')
+        pyAvecTone = pyinfo.get('pyAvecTone')
+        pySansTone = pyinfo.get('pySansTone')
+                # 处理空字符串
+        if tone_correct == '':
+            tone_correct = None
+        elif shengmu_correct == '':
+            shengmu_correct = None
+
+        sim = Levenshtein_Distance(pySansTone, value)
+        sim = "%.2f%%" % (sim * 100)
+        mot_pinyin = {
+            "pinyin_user":value,
+            "initial_user":shengmu,
+            "final_user":yunmu,
+            "tone_user":tone,
+            "pyAvecTone":pyAvecTone,
+            'pySansTone':pySansTone,
+            "initial_corr":shengmu_correct,
+            "final_corr":yunmu_correct,
+            "tone_corr":tone_correct,
+            "similarite":sim
+        }
+        data_pinyin[key] = mot_pinyin # 每个单独字的拼音信息（用户输入和正确拼音）
+        # print("每个字的正确拼音信息: ",correctPinYinInfo)
+        # print("每个字的正确声母", shengmu_correct, "每个字的正确韵母", yunmu_correct, "每个字的正确音调", tone_correct)
+        # print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
+    print(json.dumps(data_pinyin,ensure_ascii=False,indent=4))
+    return render(request, "t_myapp/HSKpinyin/hsk2.html", {"data":data_pinyin})
 
 def hsk3(request):
     return render(request, "t_myapp/HSKpinyin/hsk3.html")

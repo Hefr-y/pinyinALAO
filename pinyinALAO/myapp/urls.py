@@ -8,7 +8,7 @@ urlpatterns = [
     path('hsk1_view', views.hsk1_view, name='hsk1_view'), # HSK1视图
     path('hsk1', views.hsk1, name='hsk1'), # HSK1判断返回页面
 
-    # path('hsk2_view', views.hsk2_view, name='hsk2_view'), # HSK2视图
+    path('hsk2_view', views.hsk2_view, name='hsk2_view'), # HSK2视图
     path('hsk2', views.hsk2, name='hsk2'), # HSK2判断返回页面
 
     # path('hsk3_view', views.hsk3_view, name='hsk3_view'), # HSK3视图
