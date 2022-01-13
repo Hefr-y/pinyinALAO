@@ -5,24 +5,20 @@
 {% block content %}
 
 <title>Pinyin查询</title>
-<div class="d-flex">
 
-    <textarea id="hanziInput" cols="40"></textarea>
+<form class="row g-3" action="pinyinAffi" method="post">
 
-    <button type="button" class="btn btn-primary" onclick="pyInfo()">Analyser !</button>
+    <div class="d-flex">
 
-</div>
+        <div class="col-md-2">
+            <input type="text" name="hanziRe" autocomplete="off" class="form-control" id="validationDefault01" required>
+        </div>
 
+        <button type="submit" class="btn btn-primary">Consulter !</button>
 
-<div id="pinyinOutWithTone"></div>
-<hr>
+    </div>
 
-<div id="pinyinOut"></div>
-
+</form>
 
 
 {% endblock %}
-
-{% block javascript %}
-<script src="{% static 'scripts/index.js' %}"></script>
-{% endblock %} 
