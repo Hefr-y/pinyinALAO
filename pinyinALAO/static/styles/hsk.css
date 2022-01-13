@@ -1,0 +1,11 @@
+.display-flex {
+    display: flex;
+  }
+
+.div-hsk {
+    border: 1px solid red;
+    width: 400px;
+    height: 400px;
+    margin: 10px;
+  }
+

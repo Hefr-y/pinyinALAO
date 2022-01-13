@@ -3,7 +3,7 @@ console.log('Le script est bien chargé!');
 
 // 点击按钮后生成拼音数据的方法函数
 function pyInfo() {
-    
+
     // 获取用户输入
     var hanziInput = document.getElementById('hanziInput').value;
 
@@ -17,11 +17,11 @@ function pyInfo() {
     pinyinOut.innerHTML = "";
     pinyinOutWithTone.innerHTML = "pinyin with tone:  " + pinyinInfoWithTone;
 
-    
+
     for (pinyinNum in pinyinInfoWithTone) {
         var pyDetails = cnchar.spellInfo(pinyinInfoWithTone[pinyinNum]);
         console.log(pyDetails);
-        
+
         for(var key in pyDetails){
             var pyValue = pyDetails[key];
             // console.log(pyValue);
@@ -76,7 +76,7 @@ async function sendText() {
 
 
     // ENVOI ET RÉCUPÉRATION DE LA RÉPONSE
-    const response = await fetch('/analyze/', requete);
+    const response = await fetch('/hsk1/', requete);
     const data = await response.json();
     console.log(data);
 

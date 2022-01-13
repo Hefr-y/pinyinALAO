@@ -5,6 +5,7 @@ import json, spacy, random
 from pypinyin import lazy_pinyin,Style
 # from django.http import HttpResponse
 
+
 # Opening JSON file 词汇文件
 with open('static/hskLexique.json', 'r', encoding='utf-8') as f:
     # returns JSON object as a dictionary
@@ -89,31 +90,113 @@ def index(request):
 def pinyin_dict(request):
     return render(request, "t_myapp/HSKpinyin/pinyinDict.html/")
 
+
+
+# test
 def hsk1_view(request):
-    print(hsk1_lex)
-
     if request.method == 'GET':
-        return render(request, "t_myapp/HSKpinyin/hsk1.html",{'hsk1_lex':hsk1_lex})
-    elif request.method == 'POST':
-        query_dict = request.POST
-        data = query_dict.dict()
-        print(data)
-        for key, value in data.items():
-            shengmu = get_shengmu(value)
-            tone = get_tone(value)
-            yunmu = get_yunmu(value, shengmu)
-            correctPinYinInfo = get_py_details(key)
-            print("每个字的正确拼音信息: ",correctPinYinInfo)
-            print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
+        data_hsk1_question = {"hsk1_lex":hsk1_lex}
+        return render(request, "t_myapp/HSKpinyin/hsk1_view.html",data_hsk1_question)
 
-        return JsonResponse(data)
-        # data= get_py_details(hsk1_mot)
-        # jsdata = json.dumps(data,indent=4,ensure_ascii=False)
-        # print(jsdata)
-        # pinyin_hsk1_input = request.POST.getlist('pinyin_hsk1')
-        # pinyin_correct = lazy_pinyin(hsk1_mot, style=Style.TONE3)
-        # print(pinyin_hsk1_input)
-        # return JsonResponse({"正确的汉字拼音":data})
+
+
+def analyze(request):
+    colis = json.loads(request.body)
+    text = colis['inText']
+    print("À analyser :",text)
+
+    nlp = spacy.load("zh_core_web_sm")
+
+    output = nlp(text)
+    rep = []
+    for token in output:
+        rep.append((token.text, token.pos_))
+
+    return JsonResponse({ "reponse":rep })
+
+
+def hsk1(request):
+    query_dict = request.POST
+    data = query_dict.dict()
+    print(data)
+    data_pinyin = {}
+    for key, value in data.items():
+        shengmu = get_shengmu(value)
+        tone = get_tone(value)
+        yunmu = get_yunmu(value, shengmu)
+        correctPinYinInfo = get_py_details(key)
+        pyinfo = correctPinYinInfo[key] # 当前字的pinyin信息
+        shengmu_correct = pyinfo.get("initial")
+        yunmu_correct = pyinfo.get("final")
+        tone_correct = pyinfo.get('tone')
+        pyAvecTone = pyinfo.get('pyAvecTone')
+                # 处理空字符串
+        if tone_correct == '':
+            tone_correct = None
+        elif shengmu_correct == '':
+            shengmu_correct = None
+        mot_pinyin = {
+            "pinyin_user":value,
+            "initial_user":shengmu,
+            "final_user":yunmu,
+            "tone_user":tone,
+            "pyAvecTone":pyAvecTone,
+            "initial_corr":shengmu_correct,
+            "final_corr":yunmu_correct,
+            "tone_corr":tone_correct
+        }
+        data_pinyin[key] = mot_pinyin # 每个单独字的拼音信息（用户输入和正确拼音）
+
+        print("每个字的正确拼音信息: ",correctPinYinInfo)
+        print("每个字的正确声母", shengmu_correct, "每个字的正确韵母", yunmu_correct, "每个字的正确音调", tone_correct)
+        print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
+        print(data_pinyin)
+    return render(request, "t_myapp/HSKpinyin/hsk1.html", {"data":data_pinyin})
+    # return JsonResponse(data_pinyin)
+
+
+
+
+# def hsk1_view(request):
+#     if request.method == 'GET':
+#         data_hsk1_question = {"hsk1_lex":hsk1_lex}
+#         return render(request, "t_myapp/HSKpinyin/hsk1.html",data_hsk1_question)
+#     elif request.method == 'POST':
+#         query_dict = request.POST
+#         data = query_dict.dict()
+#         print(data)
+#         data_pinyin = {}
+#         for key, value in data.items():
+#             shengmu = get_shengmu(value)
+#             tone = get_tone(value)
+#             yunmu = get_yunmu(value, shengmu)
+#             correctPinYinInfo = get_py_details(key)
+#             pyinfo = correctPinYinInfo[key] # 当前字的pinyin信息
+#             shengmu_correct = pyinfo.get("initial")
+#             yunmu_correct = pyinfo.get("final")
+#             tone_correct = pyinfo.get('tone')
+
+#             mot_pinyin = {
+#                 "initial_user":shengmu,
+#                 "final_user":yunmu,
+#                 "tone_user":tone,
+#                 "initial_corr":shengmu_correct,
+#                 "final_corr":yunmu_correct,
+#                 "tone_corr":tone_correct
+#             }
+#             data_pinyin[key] = mot_pinyin # 每个单独字的拼音信息（用户输入和正确拼音）
+
+#             print("每个字的正确拼音信息: ",correctPinYinInfo)
+#             print("每个字的正确声母", shengmu_correct, "每个字的正确韵母", yunmu_correct, "每个字的正确音调", tone_correct)
+#             print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
+#         return render(request, "t_myapp/HSKpinyin/hsk1.html", data_pinyin)
+#         # return JsonResponse(data_pinyin)
+
+
+
+
+
+
 
 def hsk2(request):
     return render(request, "t_myapp/HSKpinyin/hsk2.html")
@@ -188,27 +271,3 @@ def boucle(request):
     ]
 
     return render(request, 't_myapp/boucle.html',{"bigmac":bigmac,"membres":membres})
-
-def analyze(request):
-    colis = json.loads(request.body)
-    text = colis['inText']
-    print("À analyser :",text)
-
-
-
-
-
-def analyze(request):
-    colis = json.loads(request.body)
-    text = colis['inText']
-    print("À analyser :",text)
-
-    nlp = spacy.load("zh_core_web_sm")
-
-    output = nlp(text)
-    rep = []
-    for token in output:
-        rep.append((token.text, token.pos_))
-
-    return JsonResponse({ "reponse":rep })
-
