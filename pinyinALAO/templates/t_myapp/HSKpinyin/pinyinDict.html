@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<title>Pinyin查询</title>
+<div class="d-flex">
+
+    <textarea id="hanziInput" cols="40"></textarea>
+
+    <button type="button" class="btn btn-primary" onclick="pyInfo()">Analyser !</button>
+
+</div>
+
+
+<div id="pinyinOutWithTone"></div>
+<hr>
+
+<div id="pinyinOut"></div>
+
+
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'scripts/index.js' %}"></script>
+{% endblock %} 

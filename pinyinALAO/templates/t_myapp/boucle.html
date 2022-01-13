@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for nom, val in bigmac.items %}
+    <p>{{ nom }} : {{ val }}</p>
+{% endfor %}
+
+<hr>
+
+{% for membre in membres %}
+    <p>{{membre.nom}}, {{membre.prenom}}<p>
+{%endfor%}
+
+
+{% endblock %}

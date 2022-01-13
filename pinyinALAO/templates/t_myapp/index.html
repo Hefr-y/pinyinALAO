@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<title>HomePage</title>
+<!-- 欢迎标题显示 -->
+<div id='drawAnimationHello'></div>
+<h1>Bonjour!</h1>
+
+{% comment %} <div class="d-flex">
+
+    <textarea id="inText" cols="40"></textarea>
+
+    <button type="button" class="btn btn-primary" onclick="sendText()">Analyser !</button>
+
+</div>
+
+<div id="outText"></div> {% endcomment %}
+
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    cnchar.draw('你好',{
+        el: '#drawAnimationHello',
+        type: cnchar.draw.TYPE.ANIMATION,
+        animation:{
+            loopAnimate: true
+        }
+    })
+</script>
+<script src="{% static 'scripts/index.js' %}"></script>
+{% endblock %}
