@@ -42,8 +42,8 @@ def get_py_details(hans):
             "final":final,
             }
         }
-        pyDetails.append(pyInfo)
-    return pyDetails
+        # pyDetails.append(pyInfo)
+    return pyInfo
 
 # 返回用户输入拼音的声母
 def get_shengmu(pinyin):
@@ -62,10 +62,25 @@ def get_shengmu(pinyin):
             return pinyin[:1]
         else:
             return None
+# 返回用户输入拼音的音调
+def get_tone(pinyin):
+    tone = pinyin[-1]
+    if tone.isdigit():
+        return tone
+    else:
+        return None
 # 返回用户输入拼音的韵母
 def get_yunmu(pinyin,shengmu):
+    tone = get_tone(pinyin)
     yunmu = pinyin.lstrip(shengmu)
-    return yunmu
+    if tone == None:
+        return yunmu
+    else:
+        yunmu = yunmu.rstrip(tone)
+        return yunmu
+
+
+
 
 # Create your views here.
 def index(request):
@@ -85,10 +100,11 @@ def hsk1_view(request):
         print(data)
         for key, value in data.items():
             shengmu = get_shengmu(value)
+            tone = get_tone(value)
             yunmu = get_yunmu(value, shengmu)
             correctPinYinInfo = get_py_details(key)
             print("每个字的正确拼音信息: ",correctPinYinInfo)
-            print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu)
+            print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
 
         return JsonResponse(data)
         # data= get_py_details(hsk1_mot)
