@@ -23,6 +23,7 @@ with open('static/pinyin_Initials_finals.json', 'r') as f:
     pinyin_initials = data["initials"]
     pinyin_finals = data["finals"]
 
+# Méthodes pour obtenir des informations correctes sur un pinyin
 def get_py_details(hans):
     """Récupérer les informations pinyin correctes d'un seul caractère chinois
     par la librairie python --- pypinyin
@@ -59,7 +60,8 @@ def get_py_details(hans):
         }
     return pyInfo
 
-
+# Méthodes liées à l'obtention d'informations
+# sur le pinyin d'entrée de l'utilisateur
 def get_shengmu(pinyin):
     """Renvoie l'initiale de l'entrée pinyin par l'utilisateur.
 
@@ -117,12 +119,19 @@ def get_tone(pinyin):
 def get_yunmu(pinyin,shengmu):
     """Renvoie la finale de l'entrée pinyin de l'utilisateur
 
+    Une fois que l'initiale et le ton du pinyin sont connus,
+    il suffit d'enlever ces deux parties et le résultat restant est la finale.
+    S'il s'agit d'une chaine nul, il renvoie None.
+    
     Args:
-        pinyin ([type]): [description]
-        shengmu ([type]): [description]
+        pinyin {str}:
+            l'entrée pinyin par l'utilisateur
+        shengmu {str}:
+            None ou la partie d'initiale du pinyin
 
     Returns:
-        [type]: [description]
+        yunmu {str} :
+            None ou la partie de finale du pinyin
     """
     tone = get_tone(pinyin)
     yunmu = pinyin.lstrip(shengmu)
