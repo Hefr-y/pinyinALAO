@@ -1,7 +1,7 @@
 # **[pinyinALAO](https://github.com/Hefr-y/pinyinALAO)**
   
 
-![banner]()
+![banner](https://github.com/Hefr-y/pinyinALAO/blob/main/pinyinALAO/static/styles/homestyle/images/logo.png)
 
 ![badge]()
 ![badge]()
