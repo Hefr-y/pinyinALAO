@@ -59,6 +59,7 @@ def get_py_details(hans):
         }
     return pyInfo
 
+
 def get_shengmu(pinyin):
     """Renvoie l'initiale de l'entrée pinyin par l'utilisateur.
 
@@ -68,7 +69,7 @@ def get_shengmu(pinyin):
 
     Returns:
         str/None :
-            la partie d'initiale du pinyin (chaîne de caractères)
+            Si pas None, la partie d'initiale du pinyin (chaîne de caractères)
     """
     if len(pinyin) == 0:
         return None
@@ -93,15 +94,36 @@ def get_shengmu(pinyin):
         else:
             return None
 
-# 返回用户输入拼音的音调
 def get_tone(pinyin):
+    """Renvoie le ton du pinyin saisi par l'utilisateur.
+
+    Args:
+        pinyin {str}:
+            l'entrée pinyin par l'utilisateur
+
+    Returns:
+        number/None :
+            Si pas None, la partie du ton du pinyin (chiffre)
+    """
+
+    # Prenez le dernier chaine du pinyin
     tone = pinyin[-1]
+    # Déterminer s'il s'agit d'un type numérique
     if tone.isdigit():
         return tone
     else:
         return None
-# 返回用户输入拼音的韵母
+
 def get_yunmu(pinyin,shengmu):
+    """Renvoie la finale de l'entrée pinyin de l'utilisateur
+
+    Args:
+        pinyin ([type]): [description]
+        shengmu ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     tone = get_tone(pinyin)
     yunmu = pinyin.lstrip(shengmu)
     if tone == None:
