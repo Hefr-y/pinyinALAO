@@ -122,7 +122,7 @@ def get_yunmu(pinyin,shengmu):
     Une fois que l'initiale et le ton du pinyin sont connus,
     il suffit d'enlever ces deux parties et le résultat restant est la finale.
     S'il s'agit d'une chaine nul, il renvoie None.
-    
+
     Args:
         pinyin {str}:
             l'entrée pinyin par l'utilisateur
@@ -171,7 +171,9 @@ def Levenshtein_Distance(str1, str2):
 
             matrix[i][j] = min(matrix[i-1][j]+1, matrix[i][j-1]+1, matrix[i-1][j-1]+d)
 
+    # Distance minimale d'édition
     dist = matrix[len(str1)][len(str2)]
+    # Calcul de la similarité sur la base de la distance d'édition
     sim = 1/(1+dist)
     sim = round(sim,3)
     return sim
