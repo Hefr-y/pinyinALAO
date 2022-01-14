@@ -5,7 +5,7 @@ from pypinyin import lazy_pinyin,Style
 # from django.http import HttpResponse
 
 
-# Opening JSON file 词汇文件
+# Opening JSON file
 with open('static/hskLexique.json', 'r', encoding='utf-8') as f:
     # returns JSON object as a dictionary
     data = json.load(f)
@@ -90,11 +90,16 @@ def get_yunmu(pinyin,shengmu):
 
 
 def Levenshtein_Distance(str1, str2):
-    """
-    计算字符串 str1 和 str2 的编辑距离
-    :param str1
-    :param str2
-    :return:
+    """Calculer la distance d'édition entre str1 et str2
+
+    Args:
+        str1{str}: N'importe quelle chaîne
+        str1{str}: N'importe quelle chaîne
+
+    Returns:
+        sim{float}: similarité des chaînes.
+                    La similarité est obtenue par 1/(1+x).
+                    La variable {x} est la distance d'édition de Levenshtein.
     """
     matrix = [[ i + j for j in range(len(str2) + 1)] for i in range(len(str1) + 1)]
 
