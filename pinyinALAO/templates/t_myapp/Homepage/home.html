@@ -13,17 +13,17 @@
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 <link rel="stylesheet" href="assets/css/simple-line-icons.css">
 
-<!-- Import Bootstrap CSS File --> 
-<link rel="stylesheet" href="assets/css/bootstrap.min.css"> 
+<!-- Import Bootstrap CSS File -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
 <!-- Import Owl Carousel CSS File -->
 
 <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
 
-<!-- TimeTo Countdown CSS Files --> 
+<!-- TimeTo Countdown CSS Files -->
 <link rel="stylesheet" href="assets/css/timeTo.css">
 
-<!-- Import Template's CSS Files --> 
+<!-- Import Template's CSS Files -->
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 
@@ -48,7 +48,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</div><!-- /.header-top -->
@@ -81,7 +81,7 @@
 					<h6 class="sub-title mb-2">SUIVRE LES MEILLEURS COURS DU MONDE</h6>
 					<h2 class="banner-title mb-5">Apprenez avec nous</h2>
 
-					<a href="#" class="btn btn-lg mt-2 banner-btn">Commencer</a>
+					<a href="{% url 'pinyinDict' %}" class="btn btn-lg mt-2 banner-btn">Commencer</a>
 				</div><!-- /.banner-texts -->
 			</div><!-- /.container -->
 		</div><!-- /.section-padding -->
@@ -230,7 +230,7 @@
 				<div class="row">
 					<div class="col-lg-3 col-md-6">
 						<div class="widget widget_about_us" >
-							<!--  <h4>Courseware</h4> --> 
+							<!--  <h4>Courseware</h4> -->
 							<img class="footer-logo" src="images/logo2.png" alt="Site Logo" >
 							<div class="widget-details">
 								<p>
@@ -250,7 +250,7 @@
 						</div><!-- /.widget -->
 					</div>
 
-			
+
 				</div><!-- /.row -->
 			</div><!-- /.container -->
 		</div><!-- /.section-padding -->
@@ -264,12 +264,12 @@
 
 <script>
 	$(document).ready(function() {
-		"use strict"; 
+		"use strict";
 		// home contact info
-		$(".trggericon").on("click", function(e){ 
+		$(".trggericon").on("click", function(e){
 		  $(this).parent('.top-contact').addClass('togglecontact');
 		});
-		$(".top-contact .close").on("click", function(e){ 
+		$(".top-contact .close").on("click", function(e){
 		  $(this).parent('.top-contact').removeClass('togglecontact');
 		});
 	});

@@ -16,15 +16,22 @@
     <div class="display-inline">
         <!-- 正确的拼音信息 -->
         <div class="div-dic">
-            汉字：<font style="font-size:30px;font-weight:bolder;">{{hanzi}}</font><br/>
-            正确信息如下：<br/>
-            带音调的拼音为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.pyAvecTone}}</font>
+            Caractère chinois：<font style="font-size:30px;font-weight:bolder;">{{hanzi}}</font><br/>
+            Les informations correctes sont les suivantes
+
+            <!-- 指向左下的箭头 -->
+            <!-- flèche pointant vers le bas à gauche -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="green" class="bi bi-arrow-down-left-circle" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-5.904-2.854a.5.5 0 1 1 .707.708L6.707 9.95h2.768a.5.5 0 1 1 0 1H5.5a.5.5 0 0 1-.5-.5V6.475a.5.5 0 1 1 1 0v2.768l4.096-4.097z"/>
+            </svg>
+
+            <br/>Le pinyin avec les tons est： <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.pyAvecTone}}</font>
                         /
                         <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.pySansTone}}</font>
                         <br/>
-            其声母为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.initial_corr}}</font><br/>
-            其韵母为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.final_corr}}</font><br/>
-            其声调为 <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.tone_corr}}</font><br/>
+            L'initiale： <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.initial_corr}}</font><br/>
+            La finale： <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.final_corr}}</font><br/>
+            Le ton： <font style="font-size: 24px;font-weight: bold;color: darkgreen;">{{pyinfo.tone_corr}}</font><br/>
         </div>
 
         {% comment %} <p>{{hanzi}} :{{ pyinfo }} </p> {% endcomment %}
