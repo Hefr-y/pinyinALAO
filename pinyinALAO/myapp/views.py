@@ -1,7 +1,6 @@
-from typing import final
 from django.shortcuts import render
 from django.http import JsonResponse,HttpResponse
-import json, spacy, random
+import json
 from pypinyin import lazy_pinyin,Style
 # from django.http import HttpResponse
 
@@ -163,7 +162,7 @@ def hsk1_view(request):
 def hsk1(request):
     query_dict = request.POST
     data = query_dict.dict()
-    # print(data)
+    # print(query_dict,data)
     data_pinyin = {}
     for key, value in data.items():
         shengmu = get_shengmu(value)
