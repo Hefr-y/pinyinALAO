@@ -1,13 +1,69 @@
-L'objectif principal de notre application est d'apprendre le pinyin chinois. Nous nous adressons aux étrangers qui apprennent le chinois ou aux enfants dont la langue maternelle est le chinois.
+# **[pinyinALAO](https://github.com/Hefr-y/pinyinALAO)**
+  
 
-L'application comporte deux services principaux, l'un est une fonction de requête où l'utilisateur saisit un caractère chinois et la page web renvoie tous les pinyins de ce caractère (si le caractère est polyphonique).
-Dans l'autre cas, l'utilisateur saisit le pinyin d'un caractère chinois sur la base du caractère chinois que nous lui fournissons, et nous évaluons dans quelle mesure le pinyin est correct pour ce caractère, plutôt que de simplement donner un résultat indiquant s'il est correct ou non.
+![banner]()
 
-Grâce au travail de la dernière année scolaire, ils ont mis le corpus sur github.
+![badge]()
+![badge]()
+[![license](https://img.shields.io/github/license/:user/:repo.svg)](LICENSE)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-Cela s'explique par le fait que le pinyin des caractères chinois contient généralement deux parties, la voyelle et la rime. Nous déterminerons dans quelle mesure ces deux parties correspondent à la bonne réponse en fonction de la saisie de l'utilisateur.
+This is an example file with maximal choices selected.
 
+This is a long description.
 
+## Table of Contents
 
-consonne initiale
-Rime syllabique en mandarin
+- [Security](#security)
+- [Background](#background)
+- [Install](#install)
+- [Usage](#usage)
+- [API](#api)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Security
+
+### Any optional sections
+
+## Background
+
+### Any optional sections
+
+## Install
+
+This module depends upon a knowledge of [Markdown]().
+
+```
+```
+
+### Any optional sections
+
+## Usage
+
+```
+```
+
+Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
+
+### Any optional sections
+
+## API
+
+### Any optional sections
+
+## More optional sections
+
+## Contributing
+
+See [the contributing file](CONTRIBUTING.md)!
+
+PRs accepted.
+
+Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
+
+### Any optional sections
+
+## License
+
+[MIT © Richard McRichface.](../LICENSE)
