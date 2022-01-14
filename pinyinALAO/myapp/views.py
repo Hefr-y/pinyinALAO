@@ -59,23 +59,40 @@ def get_py_details(hans):
         }
     return pyInfo
 
-
 def get_shengmu(pinyin):
-    # 获取声母
+    """Renvoie l'initiale de l'entrée pinyin par l'utilisateur.
+
+    Args:
+        pinyin {str}:
+            l'entrée pinyin par l'utilisateur
+
+    Returns:
+        str/None :
+            la partie d'initiale du pinyin (chaîne de caractères)
+    """
     if len(pinyin) == 0:
         return None
+    # L'initiale du pinyin chinois sont composées d'un ou deux chaîne de caractères.
+    # Par conséquent, l'analyse est divisée en deux cas.
+
+    # Si le pinyin n'a qu'un seul chaîne de caractère,
+    # il appartient à la liste des initiales, il retourne
     elif len(pinyin) == 1:
         if pinyin in pinyin_initials:
             return pinyin
         else:
             return None
     else:
+        # Si les deux premiers str du pinyin existent
+        # dans la liste des initiales, alors on retourne les deux premiers
         if pinyin[:2] in pinyin_initials:
             return pinyin[:2]
+        # idem.
         elif pinyin[:1] in pinyin_initials:
             return pinyin[:1]
         else:
             return None
+
 # 返回用户输入拼音的音调
 def get_tone(pinyin):
     tone = pinyin[-1]
