@@ -179,14 +179,35 @@ def Levenshtein_Distance(str1, str2):
     return sim
 
 # Create your views here.
+
 def index(request):
+    """view fonction de la page d'accueil
+
+        Render templates de la page d'accueil
+
+    """
     return render(request, "t_myapp/index.html")
 
 def pinyin_dict(request):
+    """view fonction de la page de rechercher pinyin
+
+        Render templates de la page
+
+    """
     if request.method == 'GET':
         return render(request, "t_myapp/HSKpinyin/pinyinDict.html")
 
 def pinyin_dict_affiche(request):
+    """Recevoir les valeurs des formulaires front-end via POST
+
+    Args:
+        request (QueryDict):
+            les valeurs des formulaires front-end
+
+    Returns:
+        data_pinyin (JSON):
+            transmission des informations pinyin analysées au front-end
+    """
     if request.method == 'POST':
         query_dict = request.POST
         data = query_dict.dict()
@@ -195,17 +216,18 @@ def pinyin_dict_affiche(request):
         for value in data.values():
             for hanzi in value:
                 correctPinYinInfo = get_py_details(hanzi)
-                pyinfo = correctPinYinInfo[hanzi] # 当前字的pinyin信息
+                pyinfo = correctPinYinInfo[hanzi] # information sur le pinyin de mot actuel
                 shengmu_correct = pyinfo.get("initial")
                 yunmu_correct = pyinfo.get("final")
                 tone_correct = pyinfo.get('tone')
                 pyAvecTone = pyinfo.get('pyAvecTone')
                 pySansTone = pyinfo.get('pySansTone')
-                        # 处理空字符串
+                # traitement des chaînes vides
                 if tone_correct == '':
                     tone_correct = None
                 elif shengmu_correct == '':
                     shengmu_correct = None
+                # combinaison d'informations sur le caractère et le pinyin
                 mot_pinyin = {
                     "pyAvecTone":pyAvecTone,
                     'pySansTone':pySansTone,
@@ -214,7 +236,9 @@ def pinyin_dict_affiche(request):
                     "tone_corr":tone_correct
                 }
                 data_pinyin[hanzi] = mot_pinyin
+        # vue du backend des valeurs passées au frontend
         print(json.dumps(data_pinyin,ensure_ascii=False,indent=4))
+        # passage des valeurs au frontend et rendu des templates
         return render(request, "t_myapp/HSKpinyin/pinyinAffi.html", {"data":data_pinyin})
 
 
