@@ -5,7 +5,7 @@ from pypinyin import lazy_pinyin,Style
 # from django.http import HttpResponse
 
 
-# Opening JSON file
+# Opening JSON file(vocabulaire de l’examen HSK)
 with open('static/hskLexique.json', 'r', encoding='utf-8') as f:
     # returns JSON object as a dictionary
     data = json.load(f)
@@ -15,7 +15,7 @@ with open('static/hskLexique.json', 'r', encoding='utf-8') as f:
     hsk3_lex = data['hsk3']
     hsk4_lex = data['hsk4']
 
-# Opening JSON file 声母韵母文件
+# Opening JSON file(Les initiales et les finales du pinyin)
 with open('static/pinyin_Initials_finals.json', 'r') as f:
     # returns JSON object as a dictionary
     data = json.load(f)
@@ -23,17 +23,29 @@ with open('static/pinyin_Initials_finals.json', 'r') as f:
     pinyin_initials = data["initials"]
     pinyin_finals = data["finals"]
 
-# 返回单个汉字的正确拼音信息
 def get_py_details(hans):
+    """Récupérer les informations pinyin correctes d'un seul caractère chinois
+    par la librairie python --- pypinyin
+
+    Args:
+        hans {str}:
+            un caractère chinois
+
+    Returns:
+        pyInfo {dict}:
+            le caractère: les informations pinyin du caractère
+    """
     pyDetails=[]
     for i in hans:
         form = i
+        # la librairie python --- pypinyin
         pyAvecTone = lazy_pinyin(i,style=Style.TONE)[0]
         pySansTone = lazy_pinyin(i, style=Style.TONE3,neutral_tone_with_five=True)[0]
         spell = lazy_pinyin(i, style=Style.NORMAL)[0]
         tone = lazy_pinyin(i, style=Style.TONE3,neutral_tone_with_five=True)[0][-1]
         initial = lazy_pinyin(i, style=Style.INITIALS, strict=False)[0]
         final = lazy_pinyin(i, style=Style.FINALS,strict=False)[0]
+        # combinaison d'informations sur le caractère et le pinyin
         pyInfo = {
             form:
             {
@@ -45,10 +57,9 @@ def get_py_details(hans):
             "final":final,
             }
         }
-        # pyDetails.append(pyInfo)
     return pyInfo
 
-# 返回用户输入拼音的声母
+
 def get_shengmu(pinyin):
     # 获取声母
     if len(pinyin) == 0:
