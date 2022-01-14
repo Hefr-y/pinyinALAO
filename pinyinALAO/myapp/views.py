@@ -179,6 +179,15 @@ def Levenshtein_Distance(str1, str2):
     return sim
 
 # Create your views here.
+
+def home(request):
+    """view fonction de la homepage
+
+        Render templates de la homepage
+
+    """
+    return render(request, "t_myapp/Homepage/home.html")
+
 def index(request):
     """view fonction de la page d'accueil
 

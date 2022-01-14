@@ -4,7 +4,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 # url configuration
 urlpatterns = [
-    path('', views.index, name="index"), # homepage
+    path('home', views.home, name="home"), # homepage
+    path('', views.index, name="index"), # homepage1
 
     path('hsk1_view', views.hsk1_view, name='hsk1_view'), # HSK1-viewpage
     path('hsk1', views.hsk1, name='hsk1'), # Evaluation du HSK1
