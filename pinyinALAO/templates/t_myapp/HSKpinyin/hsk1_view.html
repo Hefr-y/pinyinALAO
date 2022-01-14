@@ -13,12 +13,12 @@
 
 
 <div class="alert alert-info" role="alert">
-    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
-    <h4 class="alert-heading">Vocabulaire de l’examen HSK (niveau 1)</h4>
+    <svg class="bi flex-shrink-0 me-2" width="22" height="22" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+    <font style="display: inline-block;"><h5 class="alert-heading">Exercice du Pinyin du vocabulaire de l’examen HSK (niveau 1)</h5></font>
     <p class="mb-0">
-        Vous pouvez soumettre le pinyin d'un mot à la fois,</br>
-        et nous afficherons le pinyin correct pour ce mot
-        et évaluerons brièvement votre réponse par rapport à la réponse correcte.
+        Vous pouvez soumettre le pinyin d'un caractère à la fois,</br>
+        et nous afficherons le pinyin correct pour ce caractère.</br>
+        Ensuite, nous évaluerons brièvement votre réponse par rapport à la réponse correcte.
     </p>
     <hr>
     <p>
@@ -45,7 +45,10 @@
 </div>
 
 {% for hsk1_mot in hsk1_lex %}
-{% comment %} hsk词汇长度为1时,显示一个输入框 {% endcomment %}
+{% comment %}
+hsk词汇长度为1时,显示一个输入框
+Si la longueur du mot hsk est 1, une boîte de saisie est affichée
+{% endcomment %}
 {% if hsk1_mot|length == 1 %}
     <form class="row g-3" action="hsk1" method="post">
         <label for="exampleFormControlInput1" class="form-label">{{hsk1_mot}}</label>
@@ -61,7 +64,10 @@
         </div>
     </form>
 <hr>
-{% comment %} hsk词汇长度为2时,显示两个输入框 {% endcomment %}
+{% comment %}
+hsk词汇长度为1时,显示两个输入框
+Si la longueur du mot hsk est 2, 2 boîte de saisie est affichée
+{% endcomment %}
 {% elif hsk1_mot|length == 2 %}
     <form class="row g-3" action="hsk1" method="post">
         <label for="exampleFormControlInput1" class="form-label">{{hsk1_mot}}</label>
@@ -82,7 +88,10 @@
         </div>
     </form>
 <hr>
-{% comment %} hsk词汇长度为3时,显示三个输入框 {% endcomment %}
+{% comment %}
+hsk词汇长度为3时,显示一个输入框
+Si la longueur du mot hsk est 3, 3 boîte de saisie est affichée
+{% endcomment %}
 {% elif hsk1_mot|length == 3 %}
     <form class="row g-3" action="hsk1" method="post">
         <label for="exampleFormControlInput1" class="form-label">{{hsk1_mot}}</label>
@@ -108,7 +117,10 @@
         </div>
     </form>
 <hr>
-{% comment %} hsk词汇长度为4时,显示四个输入框 {% endcomment %}
+{% comment %}
+hsk词汇长度为4时,显示一个输入框
+Si la longueur du mot hsk est 4, 4 boîte de saisie est affichée
+{% endcomment %}
 {% elif hsk1_mot|length == 4 %}
     <form class="row g-3" action="hsk1" method="post">
         <label for="exampleFormControlInput1" class="form-label">{{hsk1_mot}}</label>
