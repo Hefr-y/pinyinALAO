@@ -4,13 +4,13 @@
 
 {% block content %}
 
-<title>Pinyin查询</title>
+<title>HanZi-PinYin</title>
 
-<form class="row g-3" action="pinyinAffi" method="post">
+<form class="mb-3 row" action="pinyinAffi" method="post">
 
     <div class="d-flex">
-        <div class="col-auto">
-            <input type="text" name="hanziRe" autocomplete="off" class="form-control" placeholder="Caractères chinois à rechercher" id="validationDefault01" required>
+        <div class="col-sm-4">
+            <input type="text" name="hanziRe" autocomplete="off" class="form-control" placeholder="Rechercher les pinyins des caractères chinois..." id="validationDefault01" required>
         </div>
         <div class="col-auto">
             <button type="submit" class="btn btn-dark">Consulter !</button>

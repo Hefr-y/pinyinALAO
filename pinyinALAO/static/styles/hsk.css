@@ -21,9 +21,10 @@
 }
 .d-flex {
   position: absolute;
-  left: 35%;
+  left: 30%;
 	bottom: 50%;
 }
+
 #back {
   position: absolute;
   right: 50%;
@@ -37,7 +38,7 @@
 	height: 350px;
 	margin: auto;
 	position: absolute;
-	top: 0;
+	top: 15%;
 	left: 0;
 	right: 0;
 	bottom: 0;
