@@ -28,9 +28,6 @@ This is a long description.
 - [Contributing](#contributing)
 - [License](#license)
 
-## Security
-
-### Any optional sections
 
 ## Background
 
