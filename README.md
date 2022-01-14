@@ -20,7 +20,6 @@ This is a long description.
 
 ## Table of Contents
 
-- [Security](#security)
 - [Background](#background)
 - [Install](#install)
 - [Usage](#usage)
