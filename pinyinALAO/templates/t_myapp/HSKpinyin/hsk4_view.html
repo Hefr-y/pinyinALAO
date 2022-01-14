@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<title>HSK4</title>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+    </symbol>
+</svg>
+
+
+
+<div class="alert alert-info" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="22" height="22" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+    <font style="display: inline-block;"><h5 class="alert-heading">Exercice du Pinyin du vocabulaire de l’examen HSK (niveau 4)</h5></font>
+    <p class="mb-0">
+        Vous pouvez soumettre le pinyin d'un caractère à la fois,</br>
+        et nous afficherons le pinyin correct pour ce caractère.</br>
+        Ensuite, nous évaluerons brièvement votre réponse par rapport à la réponse correcte.
+    </p>
+    <hr>
+    <p>
+        Le HSK niveau 4 comprend un total de {{hsk4_lex|length}} mots.</br>
+        Si un caractère ne prononce pas un ton, son ton est 5.</br>
+        Si vous ne connaissez pas le ton pinyin d'un caractère, vous n'êtes pas obligé de l'écrire.</br>
+        Si vous le savez, vous pouvez écrire le numéro du ton à la fin de votre pinyin.</br>
+        Par exemple, le pinyin de le caractère chinois
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">我</font> est
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">wǒ</font>.
+        On peut l'écrire comme
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">wo3</font></br>
+        Autres exemples：
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">中</font> est
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">zhōng</font> =
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">zhong1</font>
+        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">爱</font> est
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">ài</font> =
+        <font style="font-style: italic;font-weight: bolder;font-size: larger;color: navy;">ai4</font></br>
+
+
+    </p>
+</div>
+
+{% for hsk4_mot in hsk4_lex %}
+{% comment %}
+hsk词汇长度为1时,显示一个输入框
+Si la longueur du mot hsk est 1, une boîte de saisie est affichée
+{% endcomment %}
+{% if hsk4_mot|length == 1 %}
+    <form class="row g-3" action="hsk4" method="post">
+        <label for="exampleFormControlInput1" class="form-label">{{hsk4_mot}}</label>
+        <div class="input-group" id="exampleFormControlInput1">
+            <span class="input-group-text">{{hsk4_mot.0}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.0}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+<hr>
+{% comment %}
+hsk词汇长度为1时,显示两个输入框
+Si la longueur du mot hsk est 2, 2 boîte de saisie est affichée
+{% endcomment %}
+{% elif hsk4_mot|length == 2 %}
+    <form class="row g-3" action="hsk4" method="post">
+        <label for="exampleFormControlInput1" class="form-label">{{hsk4_mot}}</label>
+        <div class="input-group" id="exampleFormControlInput1">
+            <span class="input-group-text">{{hsk4_mot.0}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.0}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+
+            <span class="input-group-text">{{hsk4_mot.1}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.1}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+<hr>
+{% comment %}
+hsk词汇长度为3时,显示一个输入框
+Si la longueur du mot hsk est 3, 3 boîte de saisie est affichée
+{% endcomment %}
+{% elif hsk4_mot|length == 3 %}
+    <form class="row g-3" action="hsk4" method="post">
+        <label for="exampleFormControlInput1" class="form-label">{{hsk4_mot}}</label>
+        <div class="input-group" id="exampleFormControlInput1">
+            <span class="input-group-text">{{hsk4_mot.0}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.0}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+
+            <span class="input-group-text">{{hsk4_mot.1}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.1}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+
+            <span class="input-group-text">{{hsk4_mot.2}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.2}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+<hr>
+{% comment %}
+hsk词汇长度为4时,显示一个输入框
+Si la longueur du mot hsk est 4, 4 boîte de saisie est affichée
+{% endcomment %}
+{% elif hsk4_mot|length == 4 %}
+    <form class="row g-3" action="hsk4" method="post">
+        <label for="exampleFormControlInput1" class="form-label">{{hsk4_mot}}</label>
+        <div class="input-group" id="exampleFormControlInput1">
+            <span class="input-group-text">{{hsk4_mot.0}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.0}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+
+            <span class="input-group-text">{{hsk4_mot.1}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.1}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+
+            <span class="input-group-text">{{hsk4_mot.2}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.2}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+
+            <span class="input-group-text">{{hsk4_mot.3}}</span>
+            <div class="col-md-2">
+                <input type="text" name={{hsk4_mot.3}} autocomplete="off" class="form-control" id="validationDefault01" required>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+<hr>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

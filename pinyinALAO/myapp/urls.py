@@ -14,8 +14,9 @@ urlpatterns = [
     path('hsk3_view', views.hsk3_view, name='hsk3_view'), # HSK3视图
     path('hsk3', views.hsk3, name='hsk3'), # HSK3判断返回页面
 
-    # path('hsk4_view', views.hsk4_view, name='hsk4_view'), # HSK4视图
-    # path('hsk4', views.hsk4, name='hsk4'), # HSK4判断返回页面
+    path('hsk4_view', views.hsk4_view, name='hsk4_view'), # HSK4视图
+    path('hsk4', views.hsk4, name='hsk4'), # HSK4判断返回页面
+
     path('pinyinDict', views.pinyin_dict, name='pinyinDict'), # page de recherche
     path('pinyinAffi', views.pinyin_dict_affiche, name='pinyinAffi'), # 返回拼音信息页面
 

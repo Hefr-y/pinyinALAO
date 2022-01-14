@@ -14,6 +14,7 @@ with open('static/hskLexique.json', 'r', encoding='utf-8') as f:
     hsk1_lex = data['hsk1']
     hsk2_lex = data['hsk2']
     hsk3_lex = data['hsk3']
+    hsk4_lex = data['hsk4']
 
 # Opening JSON file 声母韵母文件
 with open('static/pinyin_Initials_finals.json', 'r') as f:
@@ -293,3 +294,51 @@ def hsk3(request):
         # print("用户输入的拼音:  "+key+":"+value,"用户输入拼音的声母: ", shengmu,"用户输入拼音的韵母: ", yunmu, "用户输入拼音的音调: ", tone)
     print(json.dumps(data_pinyin,ensure_ascii=False,indent=4))
     return render(request, "t_myapp/HSKpinyin/hsk3.html", {"data":data_pinyin})
+
+
+
+#hsk4代码
+def hsk4_view(request):
+    if request.method == 'GET':
+        data_hsk4_question = {"hsk4_lex":hsk4_lex}
+        return render(request, "t_myapp/HSKpinyin/hsk4_view.html",data_hsk4_question)
+
+def hsk4(request):
+    query_dict = request.POST
+    data = query_dict.dict()
+    # print(data)
+    data_pinyin = {}
+    for key, value in data.items():
+        shengmu = get_shengmu(value)
+        tone = get_tone(value)
+        yunmu = get_yunmu(value, shengmu)
+        correctPinYinInfo = get_py_details(key)
+        pyinfo = correctPinYinInfo[key] # 当前字的pinyin信息
+        shengmu_correct = pyinfo.get("initial")
+        yunmu_correct = pyinfo.get("final")
+        tone_correct = pyinfo.get('tone')
+        pyAvecTone = pyinfo.get('pyAvecTone')
+        pySansTone = pyinfo.get('pySansTone')
+                # 处理空字符串
+        if tone_correct == '':
+            tone_correct = None
+        elif shengmu_correct == '':
+            shengmu_correct = None
+
+        sim = Levenshtein_Distance(pySansTone, value)
+        sim = "%.2f%%" % (sim * 100)
+        mot_pinyin = {
+            "pinyin_user":value,
+            "initial_user":shengmu,
+            "final_user":yunmu,
+            "tone_user":tone,
+            "pyAvecTone":pyAvecTone,
+            'pySansTone':pySansTone,
+            "initial_corr":shengmu_correct,
+            "final_corr":yunmu_correct,
+            "tone_corr":tone_correct,
+            "similarite":sim
+        }
+        data_pinyin[key] = mot_pinyin
+    print(json.dumps(data_pinyin,ensure_ascii=False,indent=4))
+    return render(request, "t_myapp/HSKpinyin/hsk4.html", {"data":data_pinyin})
