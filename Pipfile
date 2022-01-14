@@ -5,8 +5,6 @@ name = "pypi"
 
 [packages]
 django = "*"
-jieba = "*"
-spacy = "*"
 pypinyin = "*"
 
 [dev-packages]
