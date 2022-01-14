@@ -60,15 +60,15 @@
 	<div class="header-bottom">
 		<div class="container">
 			<nav class="navbar navbar-expand-md m-0">
-				<a class="navbar-brand" href="#"><img src="{% static 'styles/homestyle/images/logo.png' %}" alt="Logo"></a>
+				<a class="navbar-brand" href="/"><img src="{% static 'styles/homestyle/images/logo.png' %}" alt="Logo"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
 				</button>
 				<div class="collapse navbar-collapse" id="main-menu">
 					<ul class="navbar-nav">
-						<li class="nav-item menu-item-has-children dropdown active"><a class="dropdown-item" href="{% url 'home' %}">Bienvenue</a></li>
-						<li class="nav-item menu-item-has-children dropdown"><a class="dropdown-item" href="aide.html">Aide</a></li>
-						<li class="nav-item menu-item-has-children dropdown"><a class="dropdown-item" href="contact.html">Contact</a></li>
+						<li class="nav-item menu-item-has-children dropdown active"><a class="dropdown-item" href="/">Bienvenue</a></li>
+						<li class="nav-item menu-item-has-children dropdown"><a class="dropdown-item" href="{% url 'aide' %}">Aide</a></li>
+						<li class="nav-item menu-item-has-children dropdown"><a class="dropdown-item" href="{% url 'contact' %}">Contact</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -110,11 +110,11 @@
 				<div id="course-slider" class="course-slider owl-carousel">
 					<div class="item">
 						<div class="item-thumb">
-							<img src="images/popular/1.jpg" alt="Item Thumbnail">
-							<div class="avatar"><img class="rounded-circle" src="images/avatar/1.png" alt="Avatar Image"></div><!-- /.avatar -->
+							<img src="{% static 'styles/homestyle/images/popular/1.jpg' %}" alt="Item Thumbnail">
+							<div class="avatar"><img class="rounded-circle" src="{% static 'styles/homestyle/images/avatar/1.png' %}" alt=""></div><!-- /.avatar -->
 						</div><!-- /.item-thumb -->
 						<div class="item-details">
-							<h3 class="item-title"><a href="#">Vocabulaire du niveau 1</a></h3><!-- /.item-title -->
+							<h3 class="item-title"><a href="{% url 'hsk1_view' %}">Vocabulaire du niveau 1</a></h3><!-- /.item-title -->
 							<span class="instructor">Débutants</span><!-- /.instructor -->
 							<div class="item-meta">
 								<span><i class="icons icon-book-open"></i> 150 mots </span>
@@ -126,11 +126,11 @@
 
 					<div class="item">
 						<div class="item-thumb">
-							<img src="images/popular/2.jpg" alt="Item Thumbnail">
-							<div class="avatar"><img class="rounded-circle" src="images/avatar/2.png" alt="Avatar Image"></div><!-- /.avatar -->
+							<img src="{% static 'styles/homestyle/images/popular/2.jpg' %}" alt="Item Thumbnail">
+							<div class="avatar"><img class="rounded-circle" src="{% static 'styles/homestyle/images/avatar/2.png' %}" alt=""></div><!-- /.avatar -->
 						</div><!-- /.item-thumb -->
 						<div class="item-details">
-							<h3 class="item-title"><a href="#">Vocabulaire du niveau 2</a></h3><!-- /.item-title -->
+							<h3 class="item-title"><a href="{% url 'hsk2_view' %}">Vocabulaire du niveau 2</a></h3><!-- /.item-title -->
 							<span class="instructor">Débutants</span><!-- /.instructor -->
 
 							<div class="item-meta">
@@ -143,11 +143,11 @@
 
 					<div class="item">
 						<div class="item-thumb">
-							<img src="images/popular/3.jpg" alt="Item Thumbnail">
-							<div class="avatar"><img class="rounded-circle" src="images/avatar/3.png" alt="Avatar Image"></div><!-- /.avatar -->
+							<img src="{% static 'styles/homestyle/images/popular/3.jpg' %}" alt="Item Thumbnail">
+							<div class="avatar"><img class="rounded-circle" src="{% static 'styles/homestyle/images/avatar/3.png' %}" alt=""></div><!-- /.avatar -->
 						</div><!-- /.item-thumb -->
 						<div class="item-details">
-							<h3 class="item-title"><a href="#">Vocabulaire du niveau 3</a></h3><!-- /.item-title -->
+							<h3 class="item-title"><a href="{% url 'hsk3_view' %}">Vocabulaire du niveau 3</a></h3><!-- /.item-title -->
 							<span class="instructor">Débutants</span><!-- /.instructor -->
 							<div class="item-meta">
 								<span><i class="icons icon-book-open"></i> 600 mots </span>
@@ -159,11 +159,11 @@
 
 					<div class="item">
 						<div class="item-thumb">
-							<img src="images/popular/7.jpg" alt="Item Thumbnail">
-							<div class="avatar"><img class="rounded-circle" src="images/avatar/1.png" alt="Avatar Image"></div><!-- /.avatar -->
+							<img src="{% static 'styles/homestyle/images/popular/7.jpg' %}" alt="Item Thumbnail">
+							<div class="avatar"><img class="rounded-circle" src="{% static 'styles/homestyle/images/avatar/1.png' %}" alt=""></div><!-- /.avatar -->
 						</div><!-- /.item-thumb -->
 						<div class="item-details">
-							<h3 class="item-title"><a href="#">Vocabulaire du niveau 4</a></h3><!-- /.item-title -->
+							<h3 class="item-title"><a href="{% url 'hsk4_view' %}">Vocabulaire du niveau 4</a></h3><!-- /.item-title -->
 							<span class="instructor">Intermédiaire</span><!-- /.instructor -->
 							<div class="item-meta">
 								<span><i class="icons icon-book-open"></i> 1200 mots </span>
@@ -179,7 +179,7 @@
 </section><!-- /.popular-courses -->
 
 
-<section class="facts background-bg" data-image-src="images/bg2.jpg">
+<section class="facts background-bg" data-image-src="{% static 'styles/homestyle/images/bg2.jpg' %}">
 	<div class="overlay">
 		<div class="section-padding">
 			<div class="container">
@@ -235,7 +235,7 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="widget widget_about_us" >
 							<!--  <h4>Courseware</h4> -->
-							<img class="footer-logo" src="images/logo2.png" alt="Site Logo" >
+							<img class="footer-logo" src="{% static 'styles/homestyle/images/logo2.png' %}" alt="Site Logo" >
 							<div class="widget-details">
 								<p>
 									Un logiciel d'apprentissage du chinois et du pinyin pour les étrangers qui aiment le chinois.
@@ -262,9 +262,9 @@
 
 </footer><!-- /.site-footer -->
 
-<script src="assets/js/jquery-3.3.1.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="{% static 'styles/homestyle/assets/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'styles/homestyle/assets/js/plugins.js' %}"></script>
+<script src="{% static 'styles/homestyle/assets/js/main.js' %}"></script>
 
 <script>
 	$(document).ready(function() {

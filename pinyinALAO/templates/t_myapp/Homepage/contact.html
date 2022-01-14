@@ -1,34 +1,39 @@
-﻿<!doctype html>
+﻿{% load static %}
+<!DOCTYPE html>
 
-<html class="no-js" lang="en-US">
+<html lang="fr">
 
 <head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title></title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Import Template Icons CSS Files -->
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/simple-line-icons.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<!-- Import Bootstrap CSS File -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Import External CSS Files -->
+	<!-- Import Template Icons CSS Files -->
+	<link rel="stylesheet" href="{% static 'styles/homestyle/assets/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'styles/homestyle/assets/css/simple-line-icons.css' %}">
 
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<!-- Import Bootstrap CSS File -->
+	<link rel="stylesheet" href="{% static 'styles/homestyle/assets/css/bootstrap.min.css' %}">
 
-<!-- Import Template's CSS Files -->
+	<!-- Import Owl Carousel CSS File -->
 
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="stylesheet" href="{% static 'styles/homestyle/assets/css/owl.carousel.min.css' %}">
 
-</head> 
+	<!-- TimeTo Countdown CSS Files -->
+	<link rel="stylesheet" href="{% static 'styles/homestyle/assets/css/timeTo.css' %}">
+
+	<!-- Import Template's CSS Files -->
+	<link rel="stylesheet" href="{% static 'styles/homestyle/assets/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'styles/homestyle/assets/css/responsive.css' %}">
+
+	<title>Contact</title>
+</head>
+
 <body>
 
 <header class="masthead">
@@ -36,15 +41,15 @@
 		<div class="row">
 			<div class="col-md-10">
 				<nav class="navbar navbar-expand-md">
-					<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Logo"></a>
+					<a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'styles/homestyle/images/logo.png' %}" alt="Logo"></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
 					</button>
 					<div class="collapse navbar-collapse" id="main-menu">
 						<ul class="navbar-nav">
-						<li class="nav-item menu-item-has-children dropdown"><a class="dropdown-item" href="index.html">Bienvenue</a></li>
-						<li class="nav-item menu-item-has-children dropdown"><a class="dropdown-item" href="aide.html">Aide</a></li>
-						<li class="nav-item menu-item-has-children dropdown active"><a class="dropdown-item" href="contact.html">Contact</a></li>
+						<li class="nav-item menu-item-has-children dropdown"><a class="dropdown-item" href="{% url 'home' %}">Bienvenue</a></li>
+						<li class="nav-item menu-item-has-children dropdown"><a class="dropdown-item" href="{% url 'aide' %}">Aide</a></li>
+						<li class="nav-item menu-item-has-children dropdown active"><a class="dropdown-item" href="/">Contact</a></li>
 						</ul>
 					</div>
 				</nav>
@@ -56,14 +61,14 @@
 
 
 
-<section class="page-name background-bg" data-image-src="images/breadcrumb.jpg">
+<section class="page-name background-bg" data-image-src="{% static 'styles/homestyle/images/breadcrumb.jpg' %}">
 	<div class="overlay">
 		<div class="section-padding">
 			<div class="container">
 				<h2 class="section-title">Contactez nous</h2>
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="#">Bienvenue</a></li>
+						<li class="breadcrumb-item"><a href="{% url 'home' %}">Bienvenue</a></li>
 						<li class="breadcrumb-item"><a href="#">Pages</a></li>
 						<li class="breadcrumb-item active" aria-current="page">Contact</li>
 					</ol>
@@ -80,7 +85,7 @@
 <section class="contact text-center">
 	<div class="section-padding">
 		<div class="container">
-			<div class="row"> 
+			<div class="row">
 				<div class="col-md-4">
 					<div class="item">
 						<div class="item-icon">
@@ -127,10 +132,10 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="widget widget_about_us">
 							<!-- <h4>Courseware</h4> -->
-							<img class="footer-logo" src="images/logo2.png" alt="Site Logo">
+							<img class="footer-logo" src="{% static 'styles/homestyle/images/logo2.png' %}" alt="Site Logo">
 							<div class="widget-details">
 								<p>
-									Un logiciel d'apprentissage du chinois et du pinyin pour les étrangers qui aiment le chinois. 
+									Un logiciel d'apprentissage du chinois et du pinyin pour les étrangers qui aiment le chinois.
 								</p>
 								<ul>
 									<li> <i class="fa fa-phone-square"></i> (+33)07 76 76 87 76</li>
@@ -153,9 +158,9 @@
 
 </footer><!-- /.site-footer -->
 
-<script src="assets/js/jquery-3.3.1.min.js"></script>
-<script src="assets/js/plugins.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="{% static 'styles/homestyle/assets/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'styles/homestyle/assets/js/plugins.js' %}"></script>
+<script src="{% static 'styles/homestyle/assets/js/main.js' %}"></script>
 <script src="http://ditu.google.cn/maps/api/js?key=AIzaSyD2jlT6C_to6X1mMvR9yRWeRvpIgTXgddM"></script>
 
 </body>

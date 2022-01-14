@@ -23,6 +23,9 @@ with open('static/pinyin_Initials_finals.json', 'r') as f:
     pinyin_initials = data["initials"]
     pinyin_finals = data["finals"]
 
+
+
+#======================================================================
 # Méthodes pour obtenir des informations correctes sur un pinyin
 def get_py_details(hans):
     """Récupérer les informations pinyin correctes d'un seul caractère chinois
@@ -60,6 +63,8 @@ def get_py_details(hans):
         }
     return pyInfo
 
+
+#======================================================================
 # Méthodes liées à l'obtention d'informations
 # sur le pinyin d'entrée de l'utilisateur
 def get_shengmu(pinyin):
@@ -178,7 +183,8 @@ def Levenshtein_Distance(str1, str2):
     sim = round(sim,3)
     return sim
 
-# Create your views here.
+#======================================================================
+# view fonction
 
 def home(request):
     """view fonction de la homepage
@@ -187,6 +193,22 @@ def home(request):
 
     """
     return render(request, "t_myapp/Homepage/home.html")
+
+def aide(request):
+    """view fonction de la page aide
+
+        Render templates de la page aide
+
+    """
+    return render(request, "t_myapp/Homepage/aide.html")
+
+def contact(request):
+    """view fonction de la page contact
+
+        Render templates de la page contact
+
+    """
+    return render(request, "t_myapp/Homepage/contact.html")
 
 def index(request):
     """view fonction de la page d'accueil
@@ -197,6 +219,8 @@ def index(request):
     return render(request, "t_myapp/index.html")
 
 
+
+#======================================================================
 # fonction de rechercher pinyin
 
 def pinyin_dict(request):
@@ -254,7 +278,7 @@ def pinyin_dict_affiche(request):
         return render(request, "t_myapp/HSKpinyin/pinyinAffi.html", {"data":data_pinyin})
 
 
-
+#======================================================================
 # fonction du evaluation lexique hsk
 
 def hsk1_view(request):
