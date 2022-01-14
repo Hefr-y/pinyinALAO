@@ -78,10 +78,16 @@ def get_yunmu(pinyin,shengmu):
     tone = get_tone(pinyin)
     yunmu = pinyin.lstrip(shengmu)
     if tone == None:
-        return yunmu
+        if yunmu == '':
+            return None
+        else:
+            return yunmu
     else:
         yunmu = yunmu.rstrip(tone)
-        return yunmu
+        if yunmu == '':
+            return None
+        else:
+            return yunmu
 
 
 def Levenshtein_Distance(str1, str2):
