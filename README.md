@@ -18,7 +18,7 @@ This is an example file with maximal choices selected.
 
 This is a long description.
 
-## Table of Contents
+## Table des matières
 
 - [Contexte](#contexte)
 - [Install](#install)
