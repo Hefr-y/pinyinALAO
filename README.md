@@ -127,6 +127,8 @@ Le serveur local devrait ainsi se lancer à l'adresse **http://127.0.0.1:8000/**
 
 ## API principale
 
+> Pour des API plus détaillées, veuillez consulter le fichier [views.py](https://github.com/Hefr-y/pinyinALAO/blob/main/pinyinALAO/myapp/views.py).
+> 
 **get_py_details( *hans* )**
 
 ​	*obtenir des informations correctes sur un pinyin*
