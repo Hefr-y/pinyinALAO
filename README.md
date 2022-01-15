@@ -20,7 +20,7 @@ This is a long description.
 
 ## Table of Contents
 
-- [Background](#background)
+- [Contexte](#contexte)
 - [Install](#install)
 - [Usage](#usage)
 - [API](#api)
