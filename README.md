@@ -30,7 +30,6 @@ Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pi
 - [Usage](#usage)
 - [API](#api)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Caractéristiques
 
@@ -104,7 +103,7 @@ Pour lancer la procédure, suivez les étapes suivantes:
 $ pipenv shell
 ```
 
-2. Aller dans le répertoire du projet via cd (Ex:si le projet est dans ***Desktop***)
+2. Aller dans le répertoire du projet via ***cd*** (Ex:si le projet est dans ***Desktop***)
 ```bash
 $ cd desktop
 ```
@@ -139,4 +138,3 @@ Small note: If editing the Readme, please conform to the [standard-readme](https
 
 
 
-[MIT © Richard McRichface.](../LICENSE)
