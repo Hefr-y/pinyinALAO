@@ -26,7 +26,7 @@ Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pi
 
 - [Caractéristiques](#caractéristiques)
 - [Contexte](#contexte)
-- [Installer](#installer)
+- [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
 - [Contributing](#contributing)
@@ -43,7 +43,7 @@ Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pi
 
 Voir le rapport détaillé de ce projet sur notre site de [Wiki : GBLL, TAL, ALAO, etc.](https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi).
 
-## Installer
+## Installation
 
 Cloner le projet depuis notre site Github : 
 ```bash
