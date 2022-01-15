@@ -28,7 +28,7 @@ This is a long description.
 - [License](#license)
 
 
-## Background
+## Contexte
 
 [Rapport détaillé sur le projet](https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi)
 
