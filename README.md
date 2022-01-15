@@ -34,14 +34,14 @@ Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pi
 
 ## Caractéristiques
 
-- Recherche du pinyin
-- Séparation du front-end et du back-end([Django](https://www.djangoproject.com/))
-- E-learning du pinyin en fonction des niveaux de vocabulaire du HSK 
-- Évaluer la similarité des réponses et des corrigés
+- Recherche du pinyin.
+- Séparation du front-end et du back-end([Django](https://www.djangoproject.com/).
+- E-learning du pinyin en fonction des niveaux de vocabulaire du HSK.
+- Évaluer la similarité des réponses et des corrigés.
 
 ## Contexte
 
-Voir le rapport détaillé de ce projet sur notre site de [Wiki : GBLL, TAL, ALAO, etc.](https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi)
+Voir le rapport détaillé de ce projet sur notre site de [Wiki : GBLL, TAL, ALAO, etc.](https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi).
 
 ## Installer
 
