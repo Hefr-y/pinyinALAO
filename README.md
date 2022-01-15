@@ -104,26 +104,94 @@ $ pipenv shell
 
 2. Aller dans le répertoire du projet via ***cd*** (Ex:si le projet est dans ***Desktop***)
 ```bash
-$ cd desktop
+$ cd Desktop
 ```
 
-3. Accéder au projet via le ***cd Nom_du_Projet*** (Ex:si le projet est ***pinyinALAO***)
+3. Accéder au projet via le ***cd Nom_du_Projet*** où se trouvent le fichier ***manage.py*** (Ex:si le projet est ***pinyinALAO***)
 ```bash
 $ cd pinyinALAO
 ```
 
-4. Projets de démarrage
+4. Démarrage
 ```bash
 $ python manage.py runserver
 ```
-Le serveur local devrait ainsi se lancer à l'adresse ***http://127.0.0.1:8000/***
+Le serveur local devrait ainsi se lancer à l'adresse **http://127.0.0.1:8000/** ou **localhost:8000**
 
 **Note:**<br>
-Si votre ordinateur est sous `windows`, nous vous recommandons d'utiliser un navigateur ***IE (Internet Explorer)*** pour accéder aux pages afin d'assurer un affichage correct du CSS.
 
-## API
+Si votre ordinateur est sous `windows`, nous vous recommandons d'utiliser un navigateur ***IE (Internet Explorer Edge)*** pour accéder aux pages afin d'assurer un affichage correct du CSS.
 
-### Any optional sections
+## API principale
 
+**get_py_details( *hans* )**
 
+​	*obtenir des informations correctes sur un pinyin*
+
+**Args** :	
+
+-  *hans* ( chaîne unicode ou liste de chaînes de caractères ) Chaînes de caractères chinoises
+
+**Returns** : Informations sur le pinyin
+
+**Type de Returns** : dict
+
+------
+
+**get_shengmu( *pinyin* )** <br>
+**get_tone( *pinyin* )**
+
+**Args** :	
+
+-  *pinyin* ( chaînes de caractères ) L'entrée pinyin par l'utilisateur
+
+**Returns** : <br>
+          L'initiale de l'entrée pinyin <br>
+          La partie du ton du pinyin (chiffre)
+
+**Type de Returns** :<br> 
+          str <br>
+          digit
+
+------
+
+**get_yunmu( _pinyin,shengmu_ )**
+
+**Args** :	<br>
+
+-  *pinyin* ( chaînes de caractères ) l'entrée pinyin par l'utilisateur
+-  *shengmu* ( chaînes de caractères ) la partie d'initiale du pinyin
+
+**Returns** : <br> 
+la partie de finale du pinyin
+
+**Type de Returns** :<br>
+str
+
+------
+
+**Levenshtein_Distance( _str1,str2_ )**
+
+​	*obtenir des informations correctes sur un pinyin*
+
+**Args** :	
+
+-  *str1* ( chaînes de caractères ) N'importe quelle chaîne
+-  *str2* ( chaînes de caractères ) N'importe quelle chaîne
+
+**Returns** : <br> 
+similarité des chaînes.
+
+**Type de Returns** :<br>
+float
+
+## Pistes d'amélioration futures
+
+- [ ] Soumettre les TODO aux [issues de Github](https://github.com/Hefr-y/pinyinALAO/issues)
+- [ ] Optimisation UI
+- [ ] Sauvegarde des informations sur le pinyin des caractères chinois dans une base de données
+- [ ] Explications en langue étrangère du vocabulaire du HSK
+- [ ] Déploiement des projets sur le serveur
+- [ ] Ajouter des traits aux caractères chinois
+- [ ] ...
 
