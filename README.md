@@ -88,7 +88,7 @@ $ pip install --user pipenv
 Sinon, consultez la [documentation de pipenv](https://pipenv.pypa.io/en/latest/#install-pipenv-today) pour obtenir des instructions.
 
 
-Ensuite, sous le répertoire générale du projet où se trouvent les fichiers ***Pipfile*** et ***Pipfile.lock***.
+Ensuite, sous le répertoire générale du projet où se trouvent les fichiers ***Pipfile*** et ***Pipfile.lock***
 
 ```bash
 $ pipenv install
@@ -98,13 +98,30 @@ $ pipenv install
 
 
 ## Usage
-
+Pour lancer la procédure, suivez les étapes suivantes:
+1. Démarrer l'environnement virtuel
+```bash
+$ pipenv shell
 ```
+
+2. Aller dans le répertoire du projet via cd (Ex:si le projet est dans ***Desktop***)
+```bash
+$ cd desktop
 ```
 
-Note: The `license` badge image link at the top of this file should be updated with the correct `:user` and `:repo`.
+3. Accéder au projet via le ***cd Nom_du_Projet*** (Ex:si le projet est ***pinyinALAO***)
+```bash
+$ cd pinyinALAO
+```
 
-### Any optional sections
+4. Projets de démarrage
+```bash
+$ python manage.py runserver
+```
+Le serveur local devrait ainsi se lancer à l'adresse ***http://127.0.0.1:8000/***
+
+**Note:**<br>
+Si votre ordinateur est sous `windows`, nous vous recommandons d'utiliser un navigateur ***IE (Internet Explorer)*** pour accéder aux pages afin d'assurer un affichage correct du CSS.
 
 ## API
 
@@ -120,8 +137,6 @@ PRs accepted.
 
 Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
-### Any optional sections
 
-## License
 
 [MIT © Richard McRichface.](../LICENSE)
