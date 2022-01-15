@@ -38,6 +38,7 @@ Voir le rapport détaillé de ce projet sur notre site de [Wiki : GBLL, TAL, ALA
 
 ## Install
 Ce projet utilise [Django](https://www.djangoproject.com/) et [pypinyin](https://github.com/mozillazg/python-pinyin). Allez les voir si vous ne les avez pas installés localement.
+
 ***Django*** et ***pypinyin*** doivent être installés pour que le projet fonctionne : 
 - `pip install Django`
 - `pip install pypinyin`
