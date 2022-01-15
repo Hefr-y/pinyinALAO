@@ -37,8 +37,7 @@ Nous proposons différents niveaux d'apprentissage du vocabulaire chinois. En gu
 Voir le rapport détaillé de ce projet sur notre site de [Wiki : GBLL, TAL, ALAO, etc.](https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi)
 
 ## Install
-
-This module depends upon a knowledge of [Markdown]().<br>
+Ce projet utilise [Django](https://www.djangoproject.com/) et [pypinyin](https://github.com/mozillazg/python-pinyin). Allez les voir si vous ne les avez pas installés localement.
 ***Django*** et ***pypinyin*** doivent être installés pour que le projet fonctionne : 
 - `pip install Django`
 - `pip install pypinyin`
