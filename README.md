@@ -97,9 +97,6 @@ $ pipenv install
 ✨🍰✨
 
 
-
-### Any optional sections
-
 ## Usage
 
 ```
