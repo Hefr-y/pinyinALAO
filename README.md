@@ -71,7 +71,7 @@ Cloner le projet depuis notre site Github :
 $ git clone https://github.com/Hefr-y/pinyinALAO.git
 ```
 
-**Pipenv peut être installé avec Python 3.6 et plus.**
+**[Pipenv](https://github.com/pypa/pipenv) peut être installé avec Python 3.6 et plus.**
 
 Si vous utilisez Debian Buster+ 
 
