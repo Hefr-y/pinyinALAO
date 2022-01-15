@@ -16,7 +16,7 @@
 
 Exercice de pinyin et recherche de pinyin pour les caractères chinois, corpus de vocabulaire chinois du HSK. Peut être utilisé pour aider à l'apprentissage des caractères chinois et à la préparation des examens du HSK. Dans le cadre d'un projet de cours [TAL et apprentissage des langues](https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/master-XB/master-sciences-du-langage-IBC7OSQ4/parcours-industrie-de-la-langue-IBC7YS7U/ue-defis-du-tal-KN02KC91/tal-et-apprentissage-des-langues-KN02POEH.html).
 
-Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pinyin).
+Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pinyin) et [Django](https://www.djangoproject.com/).
 
 - Rapport sur ce projet : https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi
 - GitHub : https://github.com/Hefr-y/pinyinALAO
