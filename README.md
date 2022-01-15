@@ -18,6 +18,10 @@ Exercice de pinyin et recherche de pinyin pour les caractères chinois, corpus d
 
 Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pinyin).
 
+- Rapport sur ce projet : https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi
+- GitHub : https://github.com/Hefr-y/pinyinALAO
+- Python version : 3.8
+
 Nous concevons un module pour une application d'e-learning du pinyin pour les apprenants étrangers sur la base de l'application créée en cours (appli Django). Nous proposons deux fonctions : ***recherche*** et ***apprentissage***. 
 - **Fonction de recherche**<br>
 Pour la fonction de recherche en pinyin, nous n'avons aucune restriction de niveau. Il suffit de taper un caractère chinois pour obtenir le pinyin correspondant, ce qui fait que le public cible de cette fonction est assez large.<br>
