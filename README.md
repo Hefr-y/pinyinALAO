@@ -50,9 +50,7 @@ Cloner le projet depuis notre site Github :
 $ git clone https://github.com/Hefr-y/pinyinALAO.git
 ```
 
-Ce projet utilise [Django](https://www.djangoproject.com/) et [pypinyin](https://github.com/mozillazg/python-pinyin). Allez les voir si vous ne les avez pas installés localement.
-
-[Django](https://www.djangoproject.com/) et [pypinyin](https://github.com/mozillazg/python-pinyin) doivent être installés pour que le projet fonctionne :
+Ce projet utilise [Django](https://www.djangoproject.com/) et [pypinyin](https://github.com/mozillazg/python-pinyin). Allez les voir si vous ne les avez pas installés localement :
 
 ```bash
 $ pip install Django
