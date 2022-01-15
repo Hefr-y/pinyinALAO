@@ -97,12 +97,16 @@ $ pipenv install
 
 ## Usage
 Pour lancer la procédure, suivez les étapes suivantes:
-1. Démarrer l'environnement virtuel
+
+1. Sous **le répertoire générale** du projet, démarrer l'environnement virtuel
+
+> Si vous n'avez pas installé pipenv, vous pouvez ignorer cette étape.
+
 ```bash
 $ pipenv shell
 ```
 
-2. Aller dans le répertoire du projet via ***cd*** (Ex:si le projet est dans ***Desktop***)
+2. Aller dans le répertoire du projet via la commande ***cd*** (Ex:si le projet est dans ***Desktop***)
 ```bash
 $ cd Desktop
 ```
@@ -118,9 +122,8 @@ $ python manage.py runserver
 ```
 Le serveur local devrait ainsi se lancer à l'adresse **http://127.0.0.1:8000/** ou **localhost:8000**
 
-**Note:**<br>
-
-Si votre ordinateur est sous `windows`, nous vous recommandons d'utiliser un navigateur ***IE (Internet Explorer Edge)*** pour accéder aux pages afin d'assurer un affichage correct du CSS.
+>**Note**<br>
+>Si votre ordinateur est sous `windows`, nous vous recommandons d'utiliser un navigateur ***IE (Internet Explorer Edge)*** pour accéder aux pages afin d'assurer un affichage correct du CSS.
 
 ## API principale
 
