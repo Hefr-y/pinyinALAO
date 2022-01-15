@@ -59,6 +59,12 @@ $ pip install Django
 $ pip install pypinyin
 ```
 
+### Méthode d'installation recommandée
+
+> 
+> Afin de ne pas polluer l'environnement de votre répertoire de travail actuel, nous vous recommandons d'installer toutes les dépendances de ce projet via [pipenv](https://github.com/pypa/pipenv).
+
+
 ### Any optional sections
 
 ## Usage
