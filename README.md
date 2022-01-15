@@ -39,7 +39,9 @@ Voir le rapport détaillé de ce projet sur notre site de [Wiki : GBLL, TAL, ALA
 ## Install
 
 This module depends upon a knowledge of [Markdown]().<br>
-Django doit être installé pour que le projet fonctionne : `pip install Django`
+***Django*** et ***pypinyin*** doivent être installés pour que le projet fonctionne : 
+- `pip install Django`
+- `pip install pypinyin`
 ```
 ```
 
