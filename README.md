@@ -55,6 +55,7 @@ Ce projet utilise [Django](https://www.djangoproject.com/) et [pypinyin](https:/
 ```bash
 $ pip install Django
 ```
+
 ```bash
 $ pip install pypinyin
 ```
@@ -63,6 +64,34 @@ $ pip install pypinyin
 
 > 
 > Afin de ne pas polluer l'environnement de votre répertoire de travail actuel, nous vous recommandons d'installer toutes les dépendances de ce projet via [pipenv](https://github.com/pypa/pipenv).
+
+Cloner le projet depuis notre site Github : 
+
+```bash
+$ git clone https://github.com/Hefr-y/pinyinALAO.git
+```
+
+**Pipenv peut être installé avec Python 3.6 et plus.**
+
+Si vous utilisez Debian Buster+ 
+
+    sudo apt install pipenv
+    
+Ou, si vous utilisez Windows :
+
+    pip install --user pipenv
+    
+Sinon, consultez la [documentation de pipenv](https://pipenv.pypa.io/en/latest/#install-pipenv-today) pour obtenir des instructions.
+
+
+Ensuite, sous le répertoire générale du projet où se trouvent les fichiers ***Pipfile*** et ***Pipfile.lock***
+
+```bash
+$ pipenv install
+```
+
+✨🍰✨
+
 
 
 ### Any optional sections
