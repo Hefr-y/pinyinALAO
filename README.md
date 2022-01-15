@@ -22,14 +22,9 @@ Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pi
 - GitHub : https://github.com/Hefr-y/pinyinALAO
 - Python version : 3.8
 
-Nous concevons un module pour une application d'e-learning du pinyin pour les apprenants étrangers sur la base de l'application créée en cours (appli Django). Nous proposons deux fonctions : ***recherche*** et ***apprentissage***. 
-- **Fonction de recherche**<br>
-Pour la fonction de recherche en pinyin, nous n'avons aucune restriction de niveau. Il suffit de taper un caractère chinois pour obtenir le pinyin correspondant, ce qui fait que le public cible de cette fonction est assez large.<br>
-- **Fonction d'apprentissage**<br>
-Nous proposons différents niveaux d'apprentissage du vocabulaire chinois. En guise de matériel d'étude, les vocabulaires choisis ici sont destinés aux niveaux 1 à 4 de l'examen HSK.
-
 ## Table des matières
 
+- [Caractéristiques](#caractéristiques)
 - [Contexte](#contexte)
 - [Installer](#installer)
 - [Usage](#usage)
@@ -37,6 +32,12 @@ Nous proposons différents niveaux d'apprentissage du vocabulaire chinois. En gu
 - [Contributing](#contributing)
 - [License](#license)
 
+## Caractéristiques
+
+- Recherche du pinyin
+- Séparation du front-end et du back-end
+- E-learning du pinyin en fonction des niveaux de vocabulaire du HSK 
+- Évaluer la similarité des réponses et des corrigés
 
 ## Contexte
 
