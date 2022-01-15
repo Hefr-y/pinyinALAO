@@ -25,7 +25,7 @@ Nous proposons différents niveaux d'apprentissage du vocabulaire chinois. En gu
 ## Table des matières
 
 - [Contexte](#contexte)
-- [Install](#install)
+- [Installer](#installer)
 - [Usage](#usage)
 - [API](#api)
 - [Contributing](#contributing)
@@ -36,7 +36,7 @@ Nous proposons différents niveaux d'apprentissage du vocabulaire chinois. En gu
 
 Voir le rapport détaillé de ce projet sur notre site de [Wiki : GBLL, TAL, ALAO, etc.](https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi)
 
-## Install
+## Installer
 
 Cloner le projet depuis notre site Github : 
 ```bash
