@@ -75,12 +75,16 @@ $ git clone https://github.com/Hefr-y/pinyinALAO.git
 
 Si vous utilisez Debian Buster+ 
 
-    sudo apt install pipenv
+```bash
+$ sudo apt install pipenv
+```
     
 Ou, si vous utilisez Windows :
 
-    pip install --user pipenv
-    
+```bash
+$ pip install --user pipenv
+```
+
 Sinon, consultez la [documentation de pipenv](https://pipenv.pypa.io/en/latest/#install-pipenv-today) pour obtenir des instructions.
 
 
