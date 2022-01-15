@@ -14,7 +14,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Hefr-y/pinyinALAO/blob/main/LICENSE)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-Ce projet est sous la direction de M.Claude Ponton et M.Sylvain Coulange.
+Exercice de pinyin et recherche de pinyin pour les caractères chinois, corpus de vocabulaire chinois du HSK. Peut être utilisé pour aider à l'apprentissage des caractères chinois et à la préparation des examens du HSK. Dans le cadre d'un projet de cours [TAL et apprentissage des langues](https://formations.univ-grenoble-alpes.fr/fr/catalogue-2021/master-XB/master-sciences-du-langage-IBC7OSQ4/parcours-industrie-de-la-langue-IBC7YS7U/ue-defis-du-tal-KN02KC91/tal-et-apprentissage-des-langues-KN02POEH.html)
 
 Nous concevons un module pour une application d'e-learning du pinyin pour les apprenants étrangers sur la base de l'application créée en cours (appli Django). Nous proposons deux fonctions : ***recherche*** et ***apprentissage***. 
 - **Fonction de recherche**<br>
