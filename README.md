@@ -29,7 +29,6 @@ Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pi
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
-- [Contributing](#contributing)
 
 ## Caractéristiques
 
@@ -125,16 +124,6 @@ Si votre ordinateur est sous `windows`, nous vous recommandons d'utiliser un nav
 ## API
 
 ### Any optional sections
-
-## More optional sections
-
-## Contributing
-
-See [the contributing file](CONTRIBUTING.md)!
-
-PRs accepted.
-
-Small note: If editing the Readme, please conform to the [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
 
 
