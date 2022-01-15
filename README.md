@@ -30,7 +30,7 @@ This is a long description.
 
 ## Contexte
 
-[Rapport détaillé sur le projet](https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi)
+Voir le rapport détaillé de ce projet sur le site de [wiki](https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi)
 
 ## Install
 
