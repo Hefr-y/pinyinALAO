@@ -14,9 +14,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Hefr-y/pinyinALAO/blob/main/LICENSE)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-This is an example file with maximal choices selected.
+Ce projet est sous la direction de M.Claude Ponton et M.Sylvain Coulange.
 
-This is a long description.
+Nous concevoir un module pour une application d'e-learning du pinyin pour les apprenants étrangers sur la base de l'application créée en cours (appli Django). Nous proposons deux fonctions : ***recherche*** et ***apprentissage***. 
+- **Fonction de recherche**<br>
+Pour la fonction de recherche en pinyin, nous n'avons aucune restriction de niveau. Il suffit de taper un caractère chinois pour obtenir le pinyin correspondant, ce qui fait que le public cible de cette fonction est assez large.<br>
+- **Fonction d'apprentissage**<br>
+Nous proposons différents niveaux d'apprentissage du vocabulaire chinois. En guise de matériel d'étude, les vocabulaires choisis ici sont destinés aux niveaux 1 à 4 de l'examen HSK.
 
 ## Table des matières
 
@@ -34,8 +38,8 @@ Voir le rapport détaillé de ce projet sur notre site de [Wiki : GBLL, TAL, ALA
 
 ## Install
 
-This module depends upon a knowledge of [Markdown]().
-
+This module depends upon a knowledge of [Markdown]().<br>
+Django doit être installé pour que le projet fonctionne : `pip install Django`
 ```
 ```
 
