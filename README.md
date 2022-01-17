@@ -29,6 +29,7 @@ Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pi
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
+- [PistesFutures](#pistesFutures)
 
 ## Caractéristiques
 
@@ -125,7 +126,7 @@ Le serveur local devrait ainsi se lancer à l'adresse **http://127.0.0.1:8000/**
 >**Note**<br>
 >Si votre ordinateur est sous `windows`, nous vous recommandons d'utiliser un navigateur ***IE (Internet Explorer Edge)*** pour accéder aux pages afin d'assurer un affichage correct du CSS.
 
-## API principale
+## API
 
 > Pour API plus détaillées, veuillez consulter le fichier [views.py](https://github.com/Hefr-y/pinyinALAO/blob/main/pinyinALAO/myapp/views.py).
 > 
@@ -190,7 +191,7 @@ similarité des chaînes.
 **Type de Returns** :<br>
 float
 
-## Pistes d'amélioration futures
+## PistesFutures
 
 - [ ] Soumettre les TODO aux [issues de Github](https://github.com/Hefr-y/pinyinALAO/issues)
 - [ ] Optimisation UI
