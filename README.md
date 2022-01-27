@@ -18,7 +18,12 @@ Exercice de pinyin et recherche de pinyin pour les caractères chinois, corpus d
 
 Basé sur le développement de [pypinyin](https://github.com/mozillazg/python-pinyin) et [Django](https://www.djangoproject.com/).
 
-- Rapport sur ce projet : https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi
+- Rapport sur ce projet : 
+  
+  https://github.com/Hefr-y/pinyinALAO/wiki/Projet-NiHao!-HanZi
+  
+  https://wiki.lezinter.net/_/Projets:Projet_NiHao!_HanZi
+  
 - GitHub : https://github.com/Hefr-y/pinyinALAO
 - Python version : 3.8
 
